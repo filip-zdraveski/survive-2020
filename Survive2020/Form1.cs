@@ -22,5 +22,10 @@ namespace Survive2020
             MessageBox.Show("All good!");
             Close();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
