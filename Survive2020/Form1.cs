@@ -37,5 +37,12 @@ namespace Survive2020
         {
 
         }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            // just for showcase, needs to be deleted 
+            SickPerson sickPerson = new SickPerson(100, 100);
+            sickPerson.Draw(e.Graphics);
+        }
     }
 }
