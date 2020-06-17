@@ -13,8 +13,8 @@ namespace Survive2020
         public Image Image { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public readonly int Width = 50;
-        public readonly int Height = 50;
+        public readonly int Width = 70;
+        public readonly int Height = 47;
 
         public Mask(int x, int y)
         {
