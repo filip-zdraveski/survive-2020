@@ -88,9 +88,9 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="Resources\disinfectant.png" />
-    <None Include="Resources\masked_hero.jpg" />
     <None Include="Resources\hero.jpg" />
     <Content Include="Resources\mask.png" />
+    <Content Include="Resources\masked_hero.png" />
     <Content Include="Resources\sick_emoji.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,8 +24,8 @@ namespace Survive2020
             int formWidth = Form1.ActiveForm.Width;
 
             // hero
-            Hero hero = new Hero(280, 150, false);
-            //Hero heroMasked = new Hero(280, 150, true);
+            // Hero hero = new Hero(280, 150, false);
+            Hero heroMasked = new Hero(280, 150, true);
 
             // sick persons
             SickPerson sickPerson1 = new SickPerson(100, 50);
@@ -46,7 +46,7 @@ namespace Survive2020
             Darkness darkness = new Darkness(new Point(0, 0), new Point(0, formHeight), 30.0f);
 
             // draw objects
-            hero.Draw(e.Graphics);
+            heroMasked.Draw(e.Graphics);
             //heroMasked.Draw(e.Graphics);
             sickPerson1.Draw(e.Graphics);
             sickPerson2.Draw(e.Graphics);

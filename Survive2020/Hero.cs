@@ -14,7 +14,7 @@ namespace Survive2020
         public bool Masked { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public readonly int Width = 70;
+        public readonly int Width = 60;
         public readonly int Height = 60;
 
         public Hero(int x, int y, bool masked)
