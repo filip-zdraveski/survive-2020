@@ -33,5 +33,16 @@ namespace Survive2020
         {
 
         }
+
+        private void btnHowToPlay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLevel_Click(object sender, EventArgs e)
+        {
+            Levels l = new Levels();
+            l.Show();
+        }
     }
 }
