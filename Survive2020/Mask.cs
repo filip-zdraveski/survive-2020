@@ -13,6 +13,8 @@ namespace Survive2020
         public Image Image { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public bool IsCollected { get; set; }
+        public Point Center { get; set; }
         public readonly int Width = 70;
         public readonly int Height = 47;
 
@@ -21,14 +23,21 @@ namespace Survive2020
             X = x;
             Y = y;
             Image = Resources.mask;
+            IsCollected = false;
+            Center = new Point(X + Width / 2, Y + Height / 2);
         }
 
         public void Draw(Graphics g)
         {
-            if (X + Width > 0)
+            if (!IsCollected)
             {
                 g.DrawImage(Image, X, Y, Width, Height);
             }
+        }
+
+        public void ChangeState()
+        {
+            IsCollected = true;
         }
     }
 }

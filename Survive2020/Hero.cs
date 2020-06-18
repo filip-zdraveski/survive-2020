@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Survive2020
 {
@@ -17,26 +18,66 @@ namespace Survive2020
         public readonly int Width = 60;
         public readonly int Height = 60;
 
-        public Hero(int x, int y, bool masked)
+        public Hero(int x, int y)
         {
             X = x;
             Y = y;
-            Masked = masked;
-            if (masked)
-            {
-                Image = Resources.masked_hero;
-            }
-            else
-            {
-                Image = Resources.hero;
-            }
+            Masked = false;
+            Image = Resources.hero;
         }
 
         public void Draw(Graphics g)
         {
-            if (X + Width > 0)
+            g.DrawImage(Image, X, Y, Width, Height);
+        }
+
+        public void MoveLeft()
+        {
+            if (X >= 10)
             {
-                g.DrawImage(Image, X, Y, Width, Height);
+                X -= 10;
+            }
+        }
+
+        public void MoveRight()
+        {
+            if (X <= Form1.ActiveForm.Width - 10 - Width)
+            {
+                X += 10;
+            }
+        }
+
+        public void MoveUp()
+        {
+            if (Y >= 10)
+            {
+                Y -= 10;
+            }
+        }
+
+        public void MoveDown()
+        {
+            if (Y <= Form1.ActiveForm.Height - 10 - Height)
+            {
+                Y += 10;
+            }
+        }
+
+        public void CheckMask(Mask mask)
+        {
+            if ((X + Width/2 - mask.Center.X) * (X + Width/2 - mask.Center.X) + (Y + Height/2 - mask.Center.Y) * (Y + Height/2 - mask.Center.Y) <= 60*60)
+            {
+                Masked = true;
+                mask.ChangeState();
+                Image = Resources.masked_hero;
+            }
+        }
+
+        public void CheckDisinfectant(Disinfectant disinfectant)
+        {
+            if ((X + Width/2 - disinfectant.Center.X) * (X + Width/2 - disinfectant.Center.X) + (Y + Height/2 - disinfectant.Center.Y) * (Y + Height/2 - disinfectant.Center.Y) <= 60*60)
+            {
+                disinfectant.ChangeState();
             }
         }
     }

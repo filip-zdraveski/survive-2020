@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hero.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Mask.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
