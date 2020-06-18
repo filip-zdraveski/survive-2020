@@ -59,5 +59,10 @@ namespace Survive2020
             mask2.Draw(e.Graphics);
             darkness.Draw(e.Graphics);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
