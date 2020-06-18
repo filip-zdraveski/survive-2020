@@ -100,10 +100,14 @@
             this.Controls.Add(this.btnLevel);
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnStart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(770, 559);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(770, 559);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
