@@ -88,7 +88,6 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="Resources\disinfectant.png" />
-    <None Include="Resources\hero.jpg" />
     <None Include="Resources\hero.png" />
     <Content Include="Resources\mask.png" />
     <Content Include="Resources\masked_hero.png" />
