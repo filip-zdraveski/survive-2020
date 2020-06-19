@@ -43,7 +43,7 @@
             this.btnStart.Location = new System.Drawing.Point(128, 210);
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(491, 39);
+            this.btnStart.Size = new System.Drawing.Size(491, 46);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -58,11 +58,10 @@
             this.btnHowToPlay.Location = new System.Drawing.Point(128, 276);
             this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHowToPlay.Name = "btnHowToPlay";
-            this.btnHowToPlay.Size = new System.Drawing.Size(491, 39);
+            this.btnHowToPlay.Size = new System.Drawing.Size(491, 46);
             this.btnHowToPlay.TabIndex = 1;
             this.btnHowToPlay.Text = "How to play";
             this.btnHowToPlay.UseVisualStyleBackColor = false;
-            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
             // 
             // btnLevel
             // 
@@ -73,11 +72,10 @@
             this.btnLevel.Location = new System.Drawing.Point(128, 341);
             this.btnLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLevel.Name = "btnLevel";
-            this.btnLevel.Size = new System.Drawing.Size(491, 39);
+            this.btnLevel.Size = new System.Drawing.Size(491, 46);
             this.btnLevel.TabIndex = 2;
             this.btnLevel.Text = "Choose Level";
             this.btnLevel.UseVisualStyleBackColor = false;
-            this.btnLevel.Click += new System.EventHandler(this.btnLevel_Click);
             // 
             // label1
             // 
@@ -102,10 +100,14 @@
             this.Controls.Add(this.btnLevel);
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnStart);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(770, 559);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(770, 559);
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
             this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);

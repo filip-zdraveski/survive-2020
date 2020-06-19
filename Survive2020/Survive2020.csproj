@@ -55,6 +55,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hero.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="HowToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
