@@ -15,9 +15,15 @@ namespace Survive2020
         public Menu()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -29,20 +35,20 @@ namespace Survive2020
             this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnHowToPlay_Click_1(object sender, EventArgs e)
         {
-
+            HowToPlay instructions = new HowToPlay(this);
+            instructions.Show();
+            this.Hide();
         }
-
-        private void btnHowToPlay_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnLevel_Click(object sender, EventArgs e)
         {
-            Levels l = new Levels();
-            l.Show();
+            LevelMenu levelMenu = new LevelMenu(this);
+            levelMenu.Show();
+            this.Hide();
+
         }
     }
 }

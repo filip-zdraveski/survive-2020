@@ -40,7 +40,7 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnStart.Location = new System.Drawing.Point(128, 210);
+            this.btnStart.Location = new System.Drawing.Point(227, 212);
             this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(491, 46);
@@ -55,13 +55,14 @@
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHowToPlay.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHowToPlay.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnHowToPlay.Location = new System.Drawing.Point(128, 276);
+            this.btnHowToPlay.Location = new System.Drawing.Point(227, 291);
             this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(491, 46);
             this.btnHowToPlay.TabIndex = 1;
             this.btnHowToPlay.Text = "How to play";
             this.btnHowToPlay.UseVisualStyleBackColor = false;
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click_1);
             // 
             // btnLevel
             // 
@@ -69,13 +70,14 @@
             this.btnLevel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLevel.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLevel.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnLevel.Location = new System.Drawing.Point(128, 341);
+            this.btnLevel.Location = new System.Drawing.Point(227, 370);
             this.btnLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLevel.Name = "btnLevel";
             this.btnLevel.Size = new System.Drawing.Size(491, 46);
             this.btnLevel.TabIndex = 2;
             this.btnLevel.Text = "Choose Level";
             this.btnLevel.UseVisualStyleBackColor = false;
+            this.btnLevel.Click += new System.EventHandler(this.btnLevel_Click);
             // 
             // label1
             // 
@@ -83,7 +85,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label1.Location = new System.Drawing.Point(81, 90);
+            this.label1.Location = new System.Drawing.Point(198, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(556, 98);
             this.label1.TabIndex = 3;
@@ -95,7 +97,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
-            this.ClientSize = new System.Drawing.Size(752, 512);
+            this.ClientSize = new System.Drawing.Size(959, 571);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLevel);
             this.Controls.Add(this.btnHowToPlay);
@@ -103,9 +105,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(770, 559);
+            this.MaximumSize = new System.Drawing.Size(977, 618);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(770, 559);
+            this.MinimumSize = new System.Drawing.Size(977, 618);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
