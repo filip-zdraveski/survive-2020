@@ -43,7 +43,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label1.Location = new System.Drawing.Point(143, 44);
+            this.label1.Location = new System.Drawing.Point(182, 67);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(586, 98);
             this.label1.TabIndex = 4;
@@ -56,7 +56,7 @@
             this.btnL1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnL1.Location = new System.Drawing.Point(142, 209);
+            this.btnL1.Location = new System.Drawing.Point(212, 199);
             this.btnL1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnL1.Name = "btnL1";
             this.btnL1.Size = new System.Drawing.Size(95, 95);
@@ -72,7 +72,7 @@
             this.btnL2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL2.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL2.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnL2.Location = new System.Drawing.Point(370, 209);
+            this.btnL2.Location = new System.Drawing.Point(422, 199);
             this.btnL2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnL2.Name = "btnL2";
             this.btnL2.Size = new System.Drawing.Size(95, 95);
@@ -88,7 +88,7 @@
             this.btnL3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL3.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL3.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnL3.Location = new System.Drawing.Point(601, 209);
+            this.btnL3.Location = new System.Drawing.Point(645, 199);
             this.btnL3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnL3.Name = "btnL3";
             this.btnL3.Size = new System.Drawing.Size(95, 95);
@@ -104,7 +104,7 @@
             this.btnL4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL4.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL4.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnL4.Location = new System.Drawing.Point(250, 362);
+            this.btnL4.Location = new System.Drawing.Point(311, 362);
             this.btnL4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnL4.Name = "btnL4";
             this.btnL4.Size = new System.Drawing.Size(95, 95);
@@ -120,7 +120,7 @@
             this.btnL5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL5.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL5.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnL5.Location = new System.Drawing.Point(488, 362);
+            this.btnL5.Location = new System.Drawing.Point(532, 362);
             this.btnL5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnL5.Name = "btnL5";
             this.btnL5.Size = new System.Drawing.Size(95, 95);
@@ -134,7 +134,7 @@
             this.btnBack.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnBack.Location = new System.Drawing.Point(31, 67);
+            this.btnBack.Location = new System.Drawing.Point(51, 90);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 75);
             this.btnBack.TabIndex = 10;
@@ -147,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
-            this.ClientSize = new System.Drawing.Size(752, 512);
+            this.ClientSize = new System.Drawing.Size(959, 571);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnL5);
             this.Controls.Add(this.btnL4);
@@ -155,8 +155,8 @@
             this.Controls.Add(this.btnL2);
             this.Controls.Add(this.btnL1);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(770, 559);
-            this.MinimumSize = new System.Drawing.Size(770, 559);
+            this.MaximumSize = new System.Drawing.Size(977, 618);
+            this.MinimumSize = new System.Drawing.Size(977, 618);
             this.Name = "LevelMenu";
             this.Text = "LevelMenu";
             this.Load += new System.EventHandler(this.LevelMenu_Load);
