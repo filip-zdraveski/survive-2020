@@ -15,8 +15,8 @@ namespace Survive2020
         public int Y { get; set; }
         public bool IsCollected { get; set; }
         public Point Center { get; set; }
-        public readonly int Width = 70;
-        public readonly int Height = 47;
+        public static readonly int Width = 70;
+        public static readonly int Height = 47;
 
         public Mask(int x, int y)
         {

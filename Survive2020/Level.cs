@@ -14,17 +14,18 @@ namespace Survive2020
         public Hero Hero;
         public List<Mask> Masks;
         public List<Disinfectant> Disinfectants;
+        private Random random;
         public Level(int levelNumber)
         {
             this.LevelNumber = levelNumber;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
             Hero = new Hero(280, 150);
+            random = new Random();
             switch(LevelNumber)
             {
                 case 1:
                     Masks.Add(new Mask(120, 50));
-                    Masks.Add(new Mask(650, 50));
                     Disinfectants.Add(new Disinfectant(400, 230));
                     break;
                 case 2:
@@ -56,6 +57,20 @@ namespace Survive2020
             {
                 Hero.MoveDown();
             }
+        }
+
+        public void AddMask()
+        {
+            int x = random.Next(Form1.ActiveForm.Width - Mask.Width);
+            int y = random.Next(Form1.ActiveForm.Height - Mask.Height);
+            Masks.Add(new Mask(x, y));
+        }
+
+        public void AddDisinfectant()
+        {
+            int x = random.Next(Form1.ActiveForm.Width - Disinfectant.Width);
+            int y = random.Next(Form1.ActiveForm.Height - Disinfectant.Height);
+            Disinfectants.Add(new Disinfectant(x, y));
         }
 
         public void Draw(Graphics g)
