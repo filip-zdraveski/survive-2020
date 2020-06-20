@@ -13,10 +13,12 @@ namespace Survive2020
     public partial class Form1 : Form
     {
         private Level Level;
-        public Form1()
+        public int CurrentLevel { get; set; }
+        public Form1(int currentLevel)
         {
             InitializeComponent();
-            Level = new Level();
+            this.CurrentLevel = currentLevel;
+            Level = new Level(CurrentLevel);
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)

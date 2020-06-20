@@ -30,7 +30,7 @@ namespace Survive2020
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1();
+            Form1 game = new Form1(1);
             game.Show();
             this.Hide();
         }

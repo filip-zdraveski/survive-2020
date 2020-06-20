@@ -10,16 +10,32 @@ namespace Survive2020
 {
     public class Level
     {
+        private int LevelNumber { get; set; }
         public Hero Hero;
         public List<Mask> Masks;
         public List<Disinfectant> Disinfectants;
-        public Level()
+        public Level(int levelNumber)
         {
+            this.LevelNumber = levelNumber;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
             Hero = new Hero(280, 150);
-            Masks.Add(new Mask(120, 50));
-            Disinfectants.Add(new Disinfectant(400, 230));
+            switch(LevelNumber)
+            {
+                case 1:
+                    Masks.Add(new Mask(120, 50));
+                    Disinfectants.Add(new Disinfectant(400, 230));
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+            
         }
         public void KeyDown(KeyEventArgs e)
         {
