@@ -15,6 +15,7 @@ namespace Survive2020
         public bool Masked { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public Timer PowerUp { get; set; }
         public readonly int Width = 60;
         public readonly int Height = 60;
 
@@ -24,6 +25,16 @@ namespace Survive2020
             Y = y;
             Masked = false;
             Image = Resources.hero;
+            PowerUp = new Timer();
+            PowerUp.Interval = 5000;
+            PowerUp.Tick += PowerUp_Tick;
+        }
+
+        private void PowerUp_Tick(object sender, EventArgs e)
+        {
+            Masked = false;
+            Image = Resources.hero;
+            PowerUp.Enabled = false;
         }
 
         public void Draw(Graphics g)
@@ -70,6 +81,8 @@ namespace Survive2020
                 Masked = true;
                 mask.ChangeState();
                 Image = Resources.masked_hero;
+                PowerUp.Enabled = true;
+                PowerUp.Start();
             }
         }
 

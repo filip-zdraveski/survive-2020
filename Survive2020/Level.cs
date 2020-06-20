@@ -24,6 +24,7 @@ namespace Survive2020
             {
                 case 1:
                     Masks.Add(new Mask(120, 50));
+                    Masks.Add(new Mask(650, 50));
                     Disinfectants.Add(new Disinfectant(400, 230));
                     break;
                 case 2:
@@ -74,11 +75,13 @@ namespace Survive2020
         {
             foreach(Mask mask in Masks)
             {
-                Hero.CheckMask(mask);
+                if(!mask.IsCollected)
+                    Hero.CheckMask(mask);
             }
             foreach(Disinfectant disinfectant in Disinfectants)
             {
-                Hero.CheckDisinfectant(disinfectant);
+                if(!disinfectant.IsCollected)
+                    Hero.CheckDisinfectant(disinfectant);
             }
         }
     }
