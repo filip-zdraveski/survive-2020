@@ -45,10 +45,12 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.Font = new System.Drawing.Font("Showcard Gothic", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.ForeColor = System.Drawing.Color.GhostWhite;
             this.richTextBox1.Location = new System.Drawing.Point(83, 106);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(800, 412);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
@@ -56,6 +58,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.GhostWhite;
             this.button1.Location = new System.Drawing.Point(83, 12);

@@ -37,6 +37,7 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.GhostWhite;
@@ -52,10 +53,11 @@
             // btnHowToPlay
             // 
             this.btnHowToPlay.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnHowToPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHowToPlay.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHowToPlay.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnHowToPlay.Location = new System.Drawing.Point(227, 291);
+            this.btnHowToPlay.Location = new System.Drawing.Point(227, 369);
             this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(491, 46);
@@ -67,10 +69,11 @@
             // btnLevel
             // 
             this.btnLevel.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnLevel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLevel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLevel.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLevel.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnLevel.Location = new System.Drawing.Point(227, 370);
+            this.btnLevel.Location = new System.Drawing.Point(227, 291);
             this.btnLevel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLevel.Name = "btnLevel";
             this.btnLevel.Size = new System.Drawing.Size(491, 46);

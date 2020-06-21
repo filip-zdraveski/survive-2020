@@ -53,6 +53,7 @@
             // btnL1
             // 
             this.btnL1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnL1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnL1.ForeColor = System.Drawing.Color.GhostWhite;
@@ -68,6 +69,7 @@
             // btnL2
             // 
             this.btnL2.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnL2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL2.Enabled = false;
             this.btnL2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL2.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -84,6 +86,7 @@
             // btnL3
             // 
             this.btnL3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnL3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL3.Enabled = false;
             this.btnL3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL3.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +103,7 @@
             // btnL4
             // 
             this.btnL4.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnL4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL4.Enabled = false;
             this.btnL4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL4.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,6 +120,7 @@
             // btnL5
             // 
             this.btnL5.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnL5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnL5.Enabled = false;
             this.btnL5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnL5.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,6 +137,7 @@
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.GhostWhite;
             this.btnBack.Location = new System.Drawing.Point(51, 90);
