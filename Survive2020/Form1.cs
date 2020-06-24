@@ -19,6 +19,8 @@ namespace Survive2020
         public Timer MaskTimer { get; set; }
         public Timer DisinfectantTimer { get; set; }
         public Timer DarknessTimer { get; set; }
+        public Timer SickPersonSpawnTimer { get; set; }
+        public Timer SickPersonMoveTimer { get; set; }
         public Form1(int currentLevel)
         {
             InitializeComponent();
@@ -27,12 +29,17 @@ namespace Survive2020
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
             MaskTimer = new Timer();
-            MaskTimer.Tick += new EventHandler(MaskTimer_Tick); 
+            MaskTimer.Tick += new EventHandler(MaskTimer_Tick);
             DisinfectantTimer = new Timer();
             DisinfectantTimer.Tick += new EventHandler(DisinfectantTimer_Tick);
             DarknessTimer = new Timer();
             DarknessTimer.Tick += new EventHandler(DarknessTimer_Tick);
-            switch(CurrentLevel)
+            SickPersonSpawnTimer = new Timer();
+            SickPersonSpawnTimer.Tick += new EventHandler(SickPersonSpawnTimer_Tick);
+            SickPersonMoveTimer = new Timer();
+            SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
+
+            switch (CurrentLevel)
             {
                 case 1:
                     MaskTimer.Interval = 10000;
@@ -41,6 +48,10 @@ namespace Survive2020
                     DisinfectantTimer.Start();
                     DarknessTimer.Interval = 3000;
                     DarknessTimer.Start();
+                    SickPersonSpawnTimer.Interval = 2000;
+                    SickPersonSpawnTimer.Start();
+                    SickPersonMoveTimer.Interval = 1000;
+                    SickPersonMoveTimer.Start();
                     break;
                 case 2:
                     MaskTimer.Interval = 15000;
@@ -116,6 +127,32 @@ namespace Survive2020
             }
         }
 
+        private void SickPersonSpawnTimer_Tick(object sender, EventArgs e)
+        {
+            if (Level.IsEnabled)
+            {
+                Level.AddSickPerson();
+                Invalidate();
+            }
+            else
+            {
+                SickPersonSpawnTimer.Stop();
+            }
+        }
+
+        private void SickPersonMoveTimer_Tick(object sender, EventArgs e)
+        {
+            if (Level.IsEnabled)
+            {
+                Level.MoveSickPerson();
+                Invalidate();
+            }
+            else
+            {
+                SickPersonMoveTimer.Stop();
+            }
+        }
+
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             Level.Draw(e.Graphics);
@@ -138,6 +175,8 @@ namespace Survive2020
             DisinfectantTimer.Stop();
             MaskTimer.Stop();
             DarknessTimer.Stop();
+            SickPersonSpawnTimer.Stop();
+            SickPersonMoveTimer.Stop();
         }
     }
 }

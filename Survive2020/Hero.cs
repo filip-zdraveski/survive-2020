@@ -18,6 +18,7 @@ namespace Survive2020
         public Timer PowerUp { get; set; }
         public readonly int Width = 60;
         public readonly int Height = 60;
+        public int Lives { get; set; }
 
         public Hero(int x, int y)
         {
@@ -28,6 +29,7 @@ namespace Survive2020
             PowerUp = new Timer();
             PowerUp.Interval = 5000;
             PowerUp.Tick += PowerUp_Tick;
+            Lives = 3;
         }
 
         private void PowerUp_Tick(object sender, EventArgs e)
@@ -76,7 +78,7 @@ namespace Survive2020
 
         public void CheckMask(Mask mask)
         {
-            if ((X + Width/2 - mask.Center.X) * (X + Width/2 - mask.Center.X) + (Y + Height/2 - mask.Center.Y) * (Y + Height/2 - mask.Center.Y) <= 60*60)
+            if ((X + Width / 2 - mask.Center.X) * (X + Width / 2 - mask.Center.X) + (Y + Height / 2 - mask.Center.Y) * (Y + Height / 2 - mask.Center.Y) <= 60 * 60)
             {
                 Masked = true;
                 mask.ChangeState();
@@ -88,7 +90,7 @@ namespace Survive2020
 
         public void CheckDisinfectant(Disinfectant disinfectant)
         {
-            if ((X + Width/2 - disinfectant.Center.X) * (X + Width/2 - disinfectant.Center.X) + (Y + Height/2 - disinfectant.Center.Y) * (Y + Height/2 - disinfectant.Center.Y) <= 60*60)
+            if ((X + Width / 2 - disinfectant.Center.X) * (X + Width / 2 - disinfectant.Center.X) + (Y + Height / 2 - disinfectant.Center.Y) * (Y + Height / 2 - disinfectant.Center.Y) <= 60 * 60)
             {
                 disinfectant.ChangeState();
             }
@@ -98,6 +100,16 @@ namespace Survive2020
         {
             if (darkness.Width >= X)
             {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckSickPerson(SickPerson sickPerson)
+        {
+            if ((X + Width / 2 - sickPerson.X) * (X + Width / 2 - sickPerson.X) + (Y + Height / 2 - sickPerson.Y) * (Y + Height / 2 - sickPerson.Y) <= 60 * 60)
+            {
+                Lives--;
                 return true;
             }
             return false;

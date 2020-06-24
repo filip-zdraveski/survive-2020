@@ -15,17 +15,20 @@ namespace Survive2020
         public Hero Hero;
         public List<Mask> Masks;
         public List<Disinfectant> Disinfectants;
+        public List<SickPerson> SickPersons;
         public Darkness Darkness;
         private Random random;
+
         public Level(int levelNumber)
         {
             LevelNumber = levelNumber;
             IsEnabled = true;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
+            SickPersons = new List<SickPerson>();
             Hero = new Hero(280, 150);
             random = new Random();
-            switch(LevelNumber)
+            switch (LevelNumber)
             {
                 case 1:
                     Masks.Add(new Mask(120, 50));
@@ -40,7 +43,7 @@ namespace Survive2020
                 case 5:
                     break;
             }
-            
+
         }
         public void KeyDown(KeyEventArgs e)
         {
@@ -76,6 +79,12 @@ namespace Survive2020
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
+        public void AddSickPerson()
+        {
+            int y = random.Next(Form1.ActiveForm.Height);
+            SickPersons.Add(new SickPerson(Form1.ActiveForm.Width - 20, y));
+        }
+
         public void IncreaseDarkness()
         {
             Darkness.Width += 50;
@@ -99,19 +108,45 @@ namespace Survive2020
             {
                 disinfectant.Draw(g);
             }
+            foreach (SickPerson sickPerson in SickPersons)
+            {
+                sickPerson.Draw(g);
+            }
             Darkness.Draw(g);
+        }
+
+        public void MoveSickPerson()
+        {
+            for (int i = 0; i < SickPersons.Count; i++)
+            {
+                SickPersons[i].Move(10);
+                if (!Hero.Masked)
+                {
+                    if (Hero.CheckSickPerson(SickPersons[i]))
+                    {
+                        SickPersons.Remove(SickPersons[i]);
+                    }
+                    if (Hero.Lives == 0)
+                    {
+                        IsEnabled = false;
+                        MessageBox.Show("You lost all your lives. Game over!");
+                        Form.ActiveForm.Close();
+                        break;
+                    }
+                }
+            }
         }
 
         public void CheckCollisions()
         {
-            foreach(Mask mask in Masks)
+            foreach (Mask mask in Masks)
             {
-                if(!mask.IsCollected)
+                if (!mask.IsCollected)
                     Hero.CheckMask(mask);
             }
-            foreach(Disinfectant disinfectant in Disinfectants)
+            foreach (Disinfectant disinfectant in Disinfectants)
             {
-                if(!disinfectant.IsCollected)
+                if (!disinfectant.IsCollected)
                     Hero.CheckDisinfectant(disinfectant);
             }
             if (Hero.CheckDarkness(Darkness))
@@ -119,6 +154,23 @@ namespace Survive2020
                 IsEnabled = false;
                 MessageBox.Show("The darkness caught you. Game over!");
                 Form.ActiveForm.Close();
+            }
+            if (!Hero.Masked)
+            {
+                for (int i = 0; i < SickPersons.Count; i++)
+                {
+                    if (Hero.CheckSickPerson(SickPersons[i]))
+                    {
+                        SickPersons.Remove(SickPersons[i]);
+                    }
+                    if (Hero.Lives == 0)
+                    {
+                        IsEnabled = false;
+                        MessageBox.Show("You lost all your lives. Game over!");
+                        Form.ActiveForm.Close();
+                        break;
+                    }
+                }
             }
         }
     }
