@@ -14,7 +14,7 @@ namespace Survive2020
     {
         private Level Level;
         public int FormHeight { get; }
-        public int Formwidth { get; }
+        public int FormWidth { get; }
         public int CurrentLevel { get; set; }
         public Timer MaskTimer { get; set; }
         public Timer DisinfectantTimer { get; set; }
@@ -23,7 +23,7 @@ namespace Survive2020
         {
             InitializeComponent();
             FormHeight = ActiveForm.Height;
-            Formwidth = ActiveForm.Width;
+            FormWidth = ActiveForm.Width;
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
             MaskTimer = new Timer();
