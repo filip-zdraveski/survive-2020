@@ -161,9 +161,13 @@
             this.Controls.Add(this.btnL2);
             this.Controls.Add(this.btnL1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(977, 618);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(977, 618);
             this.Name = "LevelMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LevelMenu";
             this.Load += new System.EventHandler(this.LevelMenu_Load);
             this.ResumeLayout(false);

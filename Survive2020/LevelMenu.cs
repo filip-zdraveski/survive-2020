@@ -32,42 +32,36 @@ namespace Survive2020
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            menu.Show();
         }
 
         private void btnL1_Click(object sender, EventArgs e)
         {
             Form1 game = new Form1(1);
             game.Show();
-            this.Hide();
         }
 
         private void btnL2_Click(object sender, EventArgs e)
         {
             Form1 game = new Form1(2);
             game.Show();
-            this.Hide();
         }
 
         private void btnL3_Click(object sender, EventArgs e)
         {
             Form1 game = new Form1(3);
             game.Show();
-            this.Hide();
         }
 
         private void btnL4_Click(object sender, EventArgs e)
         {
             Form1 game = new Form1(4);
             game.Show();
-            this.Hide();
         }
 
         private void btnL5_Click(object sender, EventArgs e)
         {
             Form1 game = new Form1(5);
             game.Show();
-            this.Hide();
         }
     }
 }

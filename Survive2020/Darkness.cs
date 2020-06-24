@@ -4,27 +4,30 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Survive2020
 {
     public class Darkness
     {
-        public Point Start { get; set; }
-        public Point End { get; set; }
-        public float Thickness { get; set; }
+        public int Start { get; set; }
+        public int End { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
 
-        public Darkness(Point s, Point e, float t)
+        public Darkness(int s, int e, int w, int h)
         {
             Start = s;
             End = e;
-            Thickness = t;
+            Width = w;
+            Height = h;
         }
 
         public void Draw(Graphics g)
         {
-            Pen pen = new Pen(Color.Black, Thickness);
-            g.DrawLine(pen, Start, End);
-            pen.Dispose();
+            Brush brush = new SolidBrush(Color.Black);
+            g.FillRectangle(brush, new Rectangle(Start, End, Width, Height));
+            brush.Dispose();
         }
     }
 }

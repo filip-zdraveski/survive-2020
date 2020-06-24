@@ -93,5 +93,14 @@ namespace Survive2020
                 disinfectant.ChangeState();
             }
         }
+
+        public bool CheckDarkness(Darkness darkness)
+        {
+            if (darkness.Width >= X)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -90,9 +90,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(977, 618);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(977, 618);
             this.Name = "HowToPlay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HowToPlay";
             this.Load += new System.EventHandler(this.HowToPlay_Load);
             this.ResumeLayout(false);

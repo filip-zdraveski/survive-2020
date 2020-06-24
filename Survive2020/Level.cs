@@ -11,13 +11,16 @@ namespace Survive2020
     public class Level
     {
         private int LevelNumber { get; set; }
+        public bool IsEnabled;
         public Hero Hero;
         public List<Mask> Masks;
         public List<Disinfectant> Disinfectants;
+        public Darkness Darkness;
         private Random random;
         public Level(int levelNumber)
         {
-            this.LevelNumber = levelNumber;
+            LevelNumber = levelNumber;
+            IsEnabled = true;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
             Hero = new Hero(280, 150);
@@ -73,6 +76,18 @@ namespace Survive2020
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
+        public void IncreaseDarkness()
+        {
+            Darkness.Width += 50;
+            Form1.ActiveForm.Invalidate();
+            if (Hero.CheckDarkness(Darkness))
+            {
+                IsEnabled = false;
+                MessageBox.Show("The darkness caught you. Game over!");
+                Form.ActiveForm.Close();
+            }
+        }
+
         public void Draw(Graphics g)
         {
             Hero.Draw(g);
@@ -84,6 +99,7 @@ namespace Survive2020
             {
                 disinfectant.Draw(g);
             }
+            Darkness.Draw(g);
         }
 
         public void CheckCollisions()
@@ -97,6 +113,12 @@ namespace Survive2020
             {
                 if(!disinfectant.IsCollected)
                     Hero.CheckDisinfectant(disinfectant);
+            }
+            if (Hero.CheckDarkness(Darkness))
+            {
+                IsEnabled = false;
+                MessageBox.Show("The darkness caught you. Game over!");
+                Form.ActiveForm.Close();
             }
         }
     }

@@ -93,7 +93,6 @@
             this.label1.Size = new System.Drawing.Size(556, 98);
             this.label1.TabIndex = 3;
             this.label1.Text = "Survive 2020";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Menu
             // 
@@ -114,7 +113,6 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
