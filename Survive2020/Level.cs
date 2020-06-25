@@ -132,21 +132,20 @@ namespace Survive2020
             }
         }
 
-        public void CheckCollisions()
+        public void CheckHeroCollisions()
         {
-            foreach (Mask mask in Masks)
+            for (int i = 0; i < Masks.Count; i++)
             {
-                if (!mask.IsCollected)
+                if (Hero.CheckMask(Masks[i]))
                 {
-                    Hero.CheckMask(mask);
+                    Masks.Remove(Masks[i]);
                 }
-
             }
-            foreach (Disinfectant disinfectant in Disinfectants)
+            for (int i = 0; i < Disinfectants.Count; i++)
             {
-                if (!disinfectant.IsCollected)
+                if (Hero.CheckDisinfectant(Disinfectants[i]))
                 {
-                    Hero.CheckDisinfectant(disinfectant);
+                    Disinfectants.Remove(Disinfectants[i]);
                 }
             }
             if (Hero.CheckDarkness(Darkness))
@@ -176,18 +175,18 @@ namespace Survive2020
 
         public void CheckDarknessCollisions()
         {
-            foreach (Mask mask in Masks)
+            for (int i = 0; i < Masks.Count; i++)
             {
-                if (!mask.IsCollected)
+                if (Darkness.CheckMask(Masks[i]))
                 {
-                    Darkness.CheckMask(mask);
+                    Masks.Remove(Masks[i]);
                 }
             }
-            foreach (Disinfectant disinfectant in Disinfectants)
+            for (int i = 0; i < Disinfectants.Count; i++)
             {
-                if (!disinfectant.IsCollected)
+                if (Darkness.CheckDisinfectant(Disinfectants[i]))
                 {
-                    Darkness.CheckDisinfectant(disinfectant);
+                    Disinfectants.Remove(Disinfectants[i]);
                 }
             }
             if (Hero.CheckDarkness(Darkness))

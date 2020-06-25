@@ -171,7 +171,7 @@ namespace Survive2020
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             Level.KeyDown(e);
-            Level.CheckCollisions();
+            Level.CheckHeroCollisions();
             Invalidate();
         }
 

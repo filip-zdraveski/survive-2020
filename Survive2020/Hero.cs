@@ -76,24 +76,28 @@ namespace Survive2020
             }
         }
 
-        public void CheckMask(Mask mask)
+        public bool CheckMask(Mask mask)
         {
             if ((X + Width / 2 - mask.Center.X) * (X + Width / 2 - mask.Center.X) + (Y + Height / 2 - mask.Center.Y) * (Y + Height / 2 - mask.Center.Y) <= 60 * 60)
             {
                 Masked = true;
-                mask.ChangeState();
+                //mask.ChangeState();
                 Image = Resources.masked_hero;
                 PowerUp.Enabled = true;
                 PowerUp.Start();
+                return true;
             }
+            return false;
         }
 
-        public void CheckDisinfectant(Disinfectant disinfectant)
+        public bool CheckDisinfectant(Disinfectant disinfectant)
         {
             if ((X + Width / 2 - disinfectant.Center.X) * (X + Width / 2 - disinfectant.Center.X) + (Y + Height / 2 - disinfectant.Center.Y) * (Y + Height / 2 - disinfectant.Center.Y) <= 60 * 60)
             {
-                disinfectant.ChangeState();
+                //disinfectant.ChangeState();
+                return true;
             }
+            return false;
         }
 
         public bool CheckDarkness(Darkness darkness)

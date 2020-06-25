@@ -31,20 +31,22 @@ namespace Survive2020
             brush.Dispose();
         }
 
-        public void CheckDisinfectant(Disinfectant disinfectant)
+        public bool CheckDisinfectant(Disinfectant disinfectant)
         {
             if (disinfectant.Center.X <= End + Width)
             {
-                disinfectant.IsCollected = true;
+                return true;
             }
+            return false;
         }
 
-        public void CheckMask(Mask mask)
+        public bool CheckMask(Mask mask)
         {
             if (mask.Center.X <= End + Width)
             {
-                mask.IsCollected = true;
+                return true;
             }
+            return false;
         }
     }
 }
