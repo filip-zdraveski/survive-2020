@@ -88,13 +88,8 @@ namespace Survive2020
         public void IncreaseDarkness()
         {
             Darkness.Width += 25;
+            CheckDarknessCollisions();
             Form1.ActiveForm.Invalidate();
-            if (Hero.CheckDarkness(Darkness))
-            {
-                IsEnabled = false;
-                MessageBox.Show("The darkness caught you. Game over!");
-                Form.ActiveForm.Close();
-            }
         }
 
         public void Draw(Graphics g)
@@ -142,12 +137,17 @@ namespace Survive2020
             foreach (Mask mask in Masks)
             {
                 if (!mask.IsCollected)
+                {
                     Hero.CheckMask(mask);
+                }
+
             }
             foreach (Disinfectant disinfectant in Disinfectants)
             {
                 if (!disinfectant.IsCollected)
+                {
                     Hero.CheckDisinfectant(disinfectant);
+                }
             }
             if (Hero.CheckDarkness(Darkness))
             {
@@ -171,6 +171,30 @@ namespace Survive2020
                         break;
                     }
                 }
+            }
+        }
+
+        public void CheckDarknessCollisions()
+        {
+            foreach (Mask mask in Masks)
+            {
+                if (!mask.IsCollected)
+                {
+                    Darkness.CheckMask(mask);
+                }
+            }
+            foreach (Disinfectant disinfectant in Disinfectants)
+            {
+                if (!disinfectant.IsCollected)
+                {
+                    Darkness.CheckDisinfectant(disinfectant);
+                }
+            }
+            if (Hero.CheckDarkness(Darkness))
+            {
+                IsEnabled = false;
+                MessageBox.Show("The darkness caught you. Game over!");
+                Form.ActiveForm.Close();
             }
         }
     }

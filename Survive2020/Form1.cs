@@ -21,6 +21,7 @@ namespace Survive2020
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
+        public Timer InvalidateTimer { get; set; }
         public Form1(int currentLevel)
         {
             InitializeComponent();
@@ -38,6 +39,10 @@ namespace Survive2020
             SickPersonSpawnTimer.Tick += new EventHandler(SickPersonSpawnTimer_Tick);
             SickPersonMoveTimer = new Timer();
             SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
+            InvalidateTimer = new Timer();
+            InvalidateTimer.Tick += new EventHandler(InvalidateTimer_Tick);
+            InvalidateTimer.Interval = 1000;
+            InvalidateTimer.Start();
 
             switch (CurrentLevel)
             {
@@ -93,7 +98,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddDisinfectant();
-                Invalidate();
+                // Invalidate();
             }
             else
             {
@@ -106,7 +111,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddMask();
-                Invalidate();
+                //Invalidate();
             }
             else
             {
@@ -119,7 +124,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.IncreaseDarkness();
-                Invalidate();
+                // Invalidate();
             }
             else
             {
@@ -132,7 +137,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddSickPerson();
-                Invalidate();
+                //Invalidate();
             }
             else
             {
@@ -145,12 +150,17 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.MoveSickPerson();
-                Invalidate();
+                //Invalidate();
             }
             else
             {
                 SickPersonMoveTimer.Stop();
             }
+        }
+
+        private void InvalidateTimer_Tick(object sender, EventArgs e)
+        {
+            Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)

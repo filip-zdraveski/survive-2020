@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -28,6 +29,22 @@ namespace Survive2020
             Brush brush = new SolidBrush(Color.Black);
             g.FillRectangle(brush, new Rectangle(Start, End, Width, Height));
             brush.Dispose();
+        }
+
+        public void CheckDisinfectant(Disinfectant disinfectant)
+        {
+            if (disinfectant.Center.X <= End + Width)
+            {
+                disinfectant.IsCollected = true;
+            }
+        }
+
+        public void CheckMask(Mask mask)
+        {
+            if (mask.Center.X <= End + Width)
+            {
+                mask.IsCollected = true;
+            }
         }
     }
 }
