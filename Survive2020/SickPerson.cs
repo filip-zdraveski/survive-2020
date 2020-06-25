@@ -13,12 +13,16 @@ namespace Survive2020
         private Image Image { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
+        public int CenterX { get; set; }
+        public int CenterY { get; set; }
         public readonly int Width = 40;
         public readonly int Height = 44;
         public SickPerson(int x, int y)
         {
             X = x;
             Y = y;
+            CenterX = X + Width / 2;
+            CenterY = Y + Height / 2;
             Image = Resources.sick_emoji;
         }
 
@@ -33,6 +37,7 @@ namespace Survive2020
         public void Move (int distance)
         {
             X -= distance;
+            CenterX -= distance;
         }
     }
 }

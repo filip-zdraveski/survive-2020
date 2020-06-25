@@ -48,9 +48,9 @@ namespace Survive2020
                     DisinfectantTimer.Start();
                     DarknessTimer.Interval = 3000;
                     DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 2000;
+                    SickPersonSpawnTimer.Interval = 3000;
                     SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 1000;
+                    SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
                     break;
                 case 2:

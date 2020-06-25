@@ -107,7 +107,7 @@ namespace Survive2020
 
         public bool CheckSickPerson(SickPerson sickPerson)
         {
-            if ((X + Width / 2 - sickPerson.X) * (X + Width / 2 - sickPerson.X) + (Y + Height / 2 - sickPerson.Y) * (Y + Height / 2 - sickPerson.Y) <= 60 * 60)
+            if ((X + Width / 2 - sickPerson.CenterX) * (X + Width / 2 - sickPerson.CenterX) + (Y + Height / 2 - sickPerson.CenterY) * (Y + Height / 2 - sickPerson.CenterY) <= 60 * 60)
             {
                 Lives--;
                 return true;

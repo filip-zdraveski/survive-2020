@@ -87,7 +87,7 @@ namespace Survive2020
 
         public void IncreaseDarkness()
         {
-            Darkness.Width += 50;
+            Darkness.Width += 25;
             Form1.ActiveForm.Invalidate();
             if (Hero.CheckDarkness(Darkness))
             {
