@@ -15,8 +15,8 @@ namespace Survive2020
         public int Y { get; set; }
         public int CenterX { get; set; }
         public int CenterY { get; set; }
-        public readonly int Width = 40;
-        public readonly int Height = 44;
+        public static readonly int Width = 40;
+        public static readonly int Height = 44;
         public SickPerson(int x, int y)
         {
             X = x;

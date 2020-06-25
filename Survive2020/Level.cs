@@ -68,21 +68,21 @@ namespace Survive2020
 
         public void AddMask()
         {
-            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Mask.Width);
-            int y = random.Next(Form1.ActiveForm.Height - Mask.Height);
+            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Mask.Width - Goal.Width);
+            int y = random.Next(Form1.ActiveForm.Height - Mask.Height - Mask.Height/2);
             Masks.Add(new Mask(x, y));
         }
 
         public void AddDisinfectant()
         {
-            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Disinfectant.Width);
-            int y = random.Next(Form1.ActiveForm.Height - Disinfectant.Height);
+            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Disinfectant.Width - Goal.Width);
+            int y = random.Next(Form1.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height/2);
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
         public void AddSickPerson()
         {
-            int y = random.Next(Form1.ActiveForm.Height);
+            int y = random.Next(Form1.ActiveForm.Height - SickPerson.Height - SickPerson.Height/2);
             SickPersons.Add(new SickPerson(Form1.ActiveForm.Width - 20, y));
         }
 
