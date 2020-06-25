@@ -19,6 +19,7 @@ namespace Survive2020
         public readonly int Width = 60;
         public readonly int Height = 60;
         public int Lives { get; set; }
+        public int Points { get; set; }
 
         public Hero(int x, int y)
         {
@@ -30,6 +31,7 @@ namespace Survive2020
             PowerUp.Interval = 5000;
             PowerUp.Tick += PowerUp_Tick;
             Lives = 3;
+            Points = 0;
         }
 
         private void PowerUp_Tick(object sender, EventArgs e)
@@ -81,7 +83,6 @@ namespace Survive2020
             if ((X + Width / 2 - mask.Center.X) * (X + Width / 2 - mask.Center.X) + (Y + Height / 2 - mask.Center.Y) * (Y + Height / 2 - mask.Center.Y) <= 60 * 60)
             {
                 Masked = true;
-                //mask.ChangeState();
                 Image = Resources.masked_hero;
                 PowerUp.Enabled = true;
                 PowerUp.Start();
@@ -94,7 +95,7 @@ namespace Survive2020
         {
             if ((X + Width / 2 - disinfectant.Center.X) * (X + Width / 2 - disinfectant.Center.X) + (Y + Height / 2 - disinfectant.Center.Y) * (Y + Height / 2 - disinfectant.Center.Y) <= 60 * 60)
             {
-                //disinfectant.ChangeState();
+                Points++;
                 return true;
             }
             return false;
@@ -114,6 +115,15 @@ namespace Survive2020
             if ((X + Width / 2 - sickPerson.CenterX) * (X + Width / 2 - sickPerson.CenterX) + (Y + Height / 2 - sickPerson.CenterY) * (Y + Height / 2 - sickPerson.CenterY) <= 60 * 60)
             {
                 Lives--;
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckGoal(Goal goal)
+        {
+            if (Points >= 5 && ((X + Width / 2 - goal.CenterX) * (X + Width / 2 - goal.CenterX) + (Y + Height / 2 - goal.CenterY) * (Y + Height / 2 - goal.CenterY) <= 60 * 60))
+            {
                 return true;
             }
             return false;

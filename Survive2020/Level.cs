@@ -17,6 +17,7 @@ namespace Survive2020
         public List<Disinfectant> Disinfectants;
         public List<SickPerson> SickPersons;
         public Darkness Darkness;
+        public Goal Goal;
         private Random random;
 
         public Level(int levelNumber)
@@ -108,6 +109,7 @@ namespace Survive2020
                 sickPerson.Draw(g);
             }
             Darkness.Draw(g);
+            Goal.Draw(g);
         }
 
         public void MoveSickPerson()
@@ -170,6 +172,14 @@ namespace Survive2020
                         break;
                     }
                 }
+            }
+            if (Hero.CheckGoal(Goal))
+            {
+                MessageBox.Show("Level finished. Good job!");
+            }
+            if (!Goal.IsEnabled && Hero.Points >= 5)
+            {
+                Goal.Enable();
             }
         }
 

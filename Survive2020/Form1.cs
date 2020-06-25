@@ -178,6 +178,7 @@ namespace Survive2020
         private void Form1_Activated(object sender, EventArgs e)
         {
             Level.Darkness = new Darkness(0, 0, 10, Form1.ActiveForm.Height);
+            Level.Goal = new Goal(Form1.ActiveForm.Width - 100, Form1.ActiveForm.Height - 110);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

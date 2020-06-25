@@ -54,6 +54,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Goal.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="HowToPlay.cs">
@@ -118,6 +119,8 @@
     <None Include="Resources\disinfectant.png" />
     <None Include="Resources\hero.png" />
     <None Include="Resources\corona.jpg" />
+    <None Include="Resources\goal.png" />
+    <None Include="Resources\goal_disabled.png" />
     <Content Include="Resources\start_menu_background.png" />
     <Content Include="Resources\mask.png" />
     <Content Include="Resources\masked_hero.png" />
