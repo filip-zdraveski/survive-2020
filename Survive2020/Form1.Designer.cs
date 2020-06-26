@@ -28,17 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lbPoints = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lbPoints
+            // 
+            this.lbPoints.AutoSize = true;
+            this.lbPoints.BackColor = System.Drawing.Color.Transparent;
+            this.lbPoints.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lbPoints.Location = new System.Drawing.Point(16, 9);
+            this.lbPoints.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lbPoints.Name = "lbPoints";
+            this.lbPoints.Size = new System.Drawing.Size(141, 37);
+            this.lbPoints.TabIndex = 0;
+            this.lbPoints.Text = "Points: ";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1500, 1055);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.lbPoints);
+            this.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
@@ -46,13 +61,17 @@
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lbPoints;
     }
 }
 

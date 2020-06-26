@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace Survive2020
         public Darkness Darkness;
         public Goal Goal;
         private Random random;
+        public int Points;
 
         public Level(int levelNumber)
         {
@@ -29,6 +31,7 @@ namespace Survive2020
             SickPersons = new List<SickPerson>();
             Hero = new Hero(280, 150);
             random = new Random();
+            Points = 0;
             switch (LevelNumber)
             {
                 case 1:
@@ -148,6 +151,7 @@ namespace Survive2020
                 if (Hero.CheckDisinfectant(Disinfectants[i]))
                 {
                     Disinfectants.Remove(Disinfectants[i]);
+                    Points += 1;
                 }
             }
             if (Hero.CheckDarkness(Darkness))
@@ -205,6 +209,6 @@ namespace Survive2020
                 MessageBox.Show("The darkness caught you. Game over!");
                 Form.ActiveForm.Close();
             }
-        }
+        }    
     }
 }

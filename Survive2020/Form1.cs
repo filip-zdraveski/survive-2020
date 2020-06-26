@@ -44,6 +44,8 @@ namespace Survive2020
             InvalidateTimer.Interval = 1000;
             InvalidateTimer.Start();
 
+            lbPoints.Text = "Points: " + Level.Points;
+
             switch (CurrentLevel)
             {
                 case 1:
@@ -160,6 +162,7 @@ namespace Survive2020
 
         private void InvalidateTimer_Tick(object sender, EventArgs e)
         {
+            UpdatePoints();
             Invalidate();
         }
 
@@ -188,6 +191,16 @@ namespace Survive2020
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
+        }
+
+        public void UpdatePoints()
+        {
+            lbPoints.Text = "Points: " + Level.Points;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
