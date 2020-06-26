@@ -20,7 +20,7 @@ namespace Survive2020
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(1);
+            Form1 game = new Form1(Form1.CurrentLevel);
             game.Show();
         }
 
@@ -34,6 +34,11 @@ namespace Survive2020
         {
             LevelMenu levelMenu = new LevelMenu(this);
             levelMenu.Show();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

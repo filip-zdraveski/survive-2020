@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lbPoints = new System.Windows.Forms.Label();
+            this.lblLevelNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbPoints
@@ -39,16 +40,30 @@
             this.lbPoints.Location = new System.Drawing.Point(16, 9);
             this.lbPoints.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lbPoints.Name = "lbPoints";
-            this.lbPoints.Size = new System.Drawing.Size(141, 37);
+            this.lbPoints.Size = new System.Drawing.Size(110, 30);
             this.lbPoints.TabIndex = 0;
             this.lbPoints.Text = "Points: ";
             // 
+            // lblLevelNumber
+            // 
+            this.lblLevelNumber.AutoSize = true;
+            this.lblLevelNumber.BackColor = System.Drawing.Color.Transparent;
+            this.lblLevelNumber.Font = new System.Drawing.Font("Showcard Gothic", 22F);
+            this.lblLevelNumber.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lblLevelNumber.Location = new System.Drawing.Point(643, 9);
+            this.lblLevelNumber.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblLevelNumber.Name = "lblLevelNumber";
+            this.lblLevelNumber.Size = new System.Drawing.Size(102, 37);
+            this.lblLevelNumber.TabIndex = 1;
+            this.lblLevelNumber.Text = "Level";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.lblLevelNumber);
             this.Controls.Add(this.lbPoints);
             this.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -72,6 +87,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbPoints;
+        private System.Windows.Forms.Label lblLevelNumber;
     }
 }
 
