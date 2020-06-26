@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Survive2020.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +23,11 @@ namespace Survive2020
         public Goal Goal;
         private Random random;
         public int Points;
+        public Image Heart1 { get; set; }
+        public Image Heart2 { get; set; }
+        public Image Heart3 { get; set; }
+        public readonly int HeartWidth = 50;
+        public readonly int HeartHeight = 50;
 
         public Level(int levelNumber)
         {
@@ -30,6 +37,9 @@ namespace Survive2020
             Disinfectants = new List<Disinfectant>();
             SickPersons = new List<SickPerson>();
             Hero = new Hero(280, 150);
+            Heart1 = Resources.heart;
+            Heart2 = Resources.heart;
+            Heart3 = Resources.heart;
             random = new Random();
             Points = 0;
             switch (LevelNumber)
@@ -99,6 +109,9 @@ namespace Survive2020
         public void Draw(Graphics g)
         {
             Hero.Draw(g);
+            g.DrawImage(Heart1, Form1.ActiveForm.Width - 210, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart2, Form1.ActiveForm.Width - 150, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart3, Form1.ActiveForm.Width - 90, 10, HeartWidth, HeartHeight);
             foreach (Mask mask in Masks)
             {
                 mask.Draw(g);
@@ -125,6 +138,19 @@ namespace Survive2020
                     if (Hero.CheckSickPerson(SickPersons[i]))
                     {
                         SickPersons.Remove(SickPersons[i]);
+                        if (Hero.Lives == 2)
+                        {
+                            Heart3 = Resources.empty_heart;
+                        }
+                        else if (Hero.Lives == 1)
+                        {
+                            Heart2 = Resources.empty_heart;
+                        }
+                        else if (Hero.Lives == 0)
+                        {
+                            Heart1 = Resources.empty_heart;
+                        }
+
                     }
                     if (Hero.Lives == 0)
                     {
@@ -167,6 +193,18 @@ namespace Survive2020
                     if (Hero.CheckSickPerson(SickPersons[i]))
                     {
                         SickPersons.Remove(SickPersons[i]);
+                        if (Hero.Lives == 2)
+                        {
+                            Heart3 = Resources.empty_heart;
+                        }
+                        else if (Hero.Lives == 1)
+                        {
+                            Heart2 = Resources.empty_heart;
+                        } 
+                        else if (Hero.Lives == 0)
+                        {
+                            Heart1 = Resources.empty_heart;
+                        }
                     }
                     if (Hero.Lives == 0)
                     {

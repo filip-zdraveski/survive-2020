@@ -168,7 +168,10 @@ namespace Survive2020
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Level.Draw(e.Graphics);
+            if(Level.IsEnabled)
+            {
+                Level.Draw(e.Graphics);
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

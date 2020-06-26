@@ -121,6 +121,8 @@
     <None Include="Resources\corona.jpg" />
     <None Include="Resources\goal.png" />
     <None Include="Resources\goal_disabled.png" />
+    <Content Include="Resources\empty_heart.png" />
+    <Content Include="Resources\heart.png" />
     <Content Include="Resources\start_menu_background.png" />
     <Content Include="Resources\mask.png" />
     <Content Include="Resources\masked_hero.png" />

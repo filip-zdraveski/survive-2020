@@ -83,6 +83,16 @@ namespace Survive2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap empty_heart {
+            get {
+                object obj = ResourceManager.GetObject("empty_heart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap goal {
             get {
                 object obj = ResourceManager.GetObject("goal", resourceCulture);
@@ -96,6 +106,16 @@ namespace Survive2020.Properties {
         internal static System.Drawing.Bitmap goal_disabled {
             get {
                 object obj = ResourceManager.GetObject("goal_disabled", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap heart {
+            get {
+                object obj = ResourceManager.GetObject("heart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
