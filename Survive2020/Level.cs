@@ -81,22 +81,22 @@ namespace Survive2020
 
         public void AddMask()
         {
-            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Mask.Width - Goal.Width);
-            int y = random.Next(Form1.ActiveForm.Height - Mask.Height - Mask.Height/2);
+            int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Mask.Width - Goal.Width);
+            int y = random.Next(Form.ActiveForm.Height - Mask.Height - Mask.Height/2);
             Masks.Add(new Mask(x, y));
         }
 
         public void AddDisinfectant()
         {
-            int x = random.Next(Darkness.Width, Form1.ActiveForm.Width - Disinfectant.Width - Goal.Width);
-            int y = random.Next(Form1.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height/2);
+            int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Disinfectant.Width - Goal.Width);
+            int y = random.Next(Form.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height/2);
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
         public void AddSickPerson()
         {
-            int y = random.Next(Form1.ActiveForm.Height - SickPerson.Height - SickPerson.Height/2);
-            SickPersons.Add(new SickPerson(Form1.ActiveForm.Width - 20, y));
+            int y = random.Next(Form.ActiveForm.Height - SickPerson.Height - SickPerson.Height/2);
+            SickPersons.Add(new SickPerson(Form.ActiveForm.Width - 20, y));
         }
 
         public void IncreaseDarkness(int width)
@@ -109,9 +109,9 @@ namespace Survive2020
         public void Draw(Graphics g)
         {
             Hero.Draw(g);
-            g.DrawImage(Heart1, Form1.ActiveForm.Width - 210, 10, HeartWidth, HeartHeight);
-            g.DrawImage(Heart2, Form1.ActiveForm.Width - 150, 10, HeartWidth, HeartHeight);
-            g.DrawImage(Heart3, Form1.ActiveForm.Width - 90, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart1, Form.ActiveForm.Width - 210, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart2, Form.ActiveForm.Width - 150, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart3, Form.ActiveForm.Width - 90, 10, HeartWidth, HeartHeight);
             foreach (Mask mask in Masks)
             {
                 mask.Draw(g);
@@ -210,7 +210,18 @@ namespace Survive2020
             }
             if (Hero.CheckGoal(Goal))
             {
-                MessageBox.Show("Level finished. Good job!");
+                IsEnabled = false;
+                if (LevelNumber < 5)
+                {
+                    MessageBox.Show(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
+                    Form.ActiveForm.Close();
+                    Form1 nextLevel = new Form1(++Form1.CurrentLevel);
+                    nextLevel.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Game finished. Congratulations!");
+                }
             }
             if (!Goal.IsEnabled && Points >= 5)
             {
