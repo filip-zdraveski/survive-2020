@@ -48,5 +48,10 @@ namespace Survive2020
             }
             return false;
         }
+
+        public void Increase(int width)
+        {
+            Width += width;
+        }
     }
 }

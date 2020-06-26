@@ -16,6 +16,7 @@ namespace Survive2020
         public int FormHeight { get; }
         public int FormWidth { get; }
         public int CurrentLevel { get; set; }
+        public int DarknessIncrement { get; set; }
         public Timer MaskTimer { get; set; }
         public Timer DisinfectantTimer { get; set; }
         public Timer DarknessTimer { get; set; }
@@ -49,6 +50,7 @@ namespace Survive2020
             switch (CurrentLevel)
             {
                 case 1:
+                    DarknessIncrement = 20;
                     MaskTimer.Interval = 10000;
                     MaskTimer.Start();
                     DisinfectantTimer.Interval = 5000;
@@ -61,6 +63,7 @@ namespace Survive2020
                     SickPersonMoveTimer.Start();
                     break;
                 case 2:
+                    DarknessIncrement = 25;
                     MaskTimer.Interval = 15000;
                     MaskTimer.Start();
                     DisinfectantTimer.Interval = 5000;
@@ -69,6 +72,7 @@ namespace Survive2020
                     DarknessTimer.Start();
                     break;
                 case 3:
+                    DarknessIncrement = 30;
                     MaskTimer.Interval = 20000;
                     MaskTimer.Start();
                     DisinfectantTimer.Interval = 5000;
@@ -77,6 +81,7 @@ namespace Survive2020
                     DarknessTimer.Start();
                     break;
                 case 4:
+                    DarknessIncrement = 35;
                     MaskTimer.Interval = 25000;
                     MaskTimer.Start();
                     DisinfectantTimer.Interval = 5000;
@@ -85,6 +90,7 @@ namespace Survive2020
                     DarknessTimer.Start();
                     break;
                 case 5:
+                    DarknessIncrement = 40;
                     MaskTimer.Interval = 30000;
                     MaskTimer.Start();
                     DisinfectantTimer.Interval = 5000;
@@ -125,7 +131,7 @@ namespace Survive2020
         {
             if (Level.IsEnabled)
             {
-                Level.IncreaseDarkness();
+                Level.IncreaseDarkness(DarknessIncrement);
                 // Invalidate();
             }
             else
@@ -168,7 +174,7 @@ namespace Survive2020
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            if(Level.IsEnabled)
+            if (Level.IsEnabled)
             {
                 Level.Draw(e.Graphics);
             }

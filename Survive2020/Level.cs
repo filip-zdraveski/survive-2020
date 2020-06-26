@@ -99,9 +99,9 @@ namespace Survive2020
             SickPersons.Add(new SickPerson(Form1.ActiveForm.Width - 20, y));
         }
 
-        public void IncreaseDarkness()
+        public void IncreaseDarkness(int width)
         {
-            Darkness.Width += 25;
+            Darkness.Increase(width);
             CheckDarknessCollisions();
             Form1.ActiveForm.Invalidate();
         }
@@ -138,19 +138,7 @@ namespace Survive2020
                     if (Hero.CheckSickPerson(SickPersons[i]))
                     {
                         SickPersons.Remove(SickPersons[i]);
-                        if (Hero.Lives == 2)
-                        {
-                            Heart3 = Resources.empty_heart;
-                        }
-                        else if (Hero.Lives == 1)
-                        {
-                            Heart2 = Resources.empty_heart;
-                        }
-                        else if (Hero.Lives == 0)
-                        {
-                            Heart1 = Resources.empty_heart;
-                        }
-
+                        ChangeHearts();
                     }
                     if (Hero.Lives == 0)
                     {
@@ -160,6 +148,22 @@ namespace Survive2020
                         break;
                     }
                 }
+            }
+        }
+
+        public void ChangeHearts()
+        {
+            if (Hero.Lives == 2)
+            {
+                Heart3 = Resources.empty_heart;
+            }
+            else if (Hero.Lives == 1)
+            {
+                Heart2 = Resources.empty_heart;
+            }
+            else if (Hero.Lives == 0)
+            {
+                Heart1 = Resources.empty_heart;
             }
         }
 
@@ -193,18 +197,7 @@ namespace Survive2020
                     if (Hero.CheckSickPerson(SickPersons[i]))
                     {
                         SickPersons.Remove(SickPersons[i]);
-                        if (Hero.Lives == 2)
-                        {
-                            Heart3 = Resources.empty_heart;
-                        }
-                        else if (Hero.Lives == 1)
-                        {
-                            Heart2 = Resources.empty_heart;
-                        } 
-                        else if (Hero.Lives == 0)
-                        {
-                            Heart1 = Resources.empty_heart;
-                        }
+                        ChangeHearts();
                     }
                     if (Hero.Lives == 0)
                     {
