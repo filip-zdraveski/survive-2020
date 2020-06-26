@@ -22,7 +22,7 @@ namespace Survive2020
         public Darkness Darkness;
         public Goal Goal;
         private Random random;
-        public int Points;
+        public static int Points;
         public Image Heart1 { get; set; }
         public Image Heart2 { get; set; }
         public Image Heart3 { get; set; }
@@ -219,7 +219,7 @@ namespace Survive2020
             {
                 MessageBox.Show("Level finished. Good job!");
             }
-            if (!Goal.IsEnabled && Hero.Points >= 5)
+            if (!Goal.IsEnabled && Points >= 5)
             {
                 Goal.Enable();
             }
