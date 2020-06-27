@@ -217,6 +217,7 @@ namespace Survive2020
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
+            InvalidateTimer.Stop();
         }
 
         public void UpdatePoints()

@@ -233,6 +233,7 @@ namespace Survive2020
                 else
                 {
                     MessageBox.Show("Game finished. Congratulations!");
+                    Form.ActiveForm.Close();
                 }
             }
             if (!Goal.IsEnabled && Points >= RequiredPoints)
