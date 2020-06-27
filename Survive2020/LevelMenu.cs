@@ -21,7 +21,7 @@ namespace Survive2020
 
         private void LevelMenu_Load(object sender, EventArgs e)
         {
-            EnableButtons();
+
         }
 
         private void EnableButtons()
@@ -82,6 +82,11 @@ namespace Survive2020
         {
             Form1 game = new Form1(5);
             game.Show();
+        }
+
+        private void LevelMenu_Activated(object sender, EventArgs e)
+        {
+            EnableButtons();
         }
     }
 }
