@@ -23,6 +23,7 @@ namespace Survive2020
         public Goal Goal;
         private Random random;
         public static int Points;
+        public static int RequiredPoints { get; set; }
         public Image Heart1 { get; set; }
         public Image Heart2 { get; set; }
         public Image Heart3 { get; set; }
@@ -45,16 +46,27 @@ namespace Survive2020
             switch (LevelNumber)
             {
                 case 1:
+                    RequiredPoints = 10;
                     Masks.Add(new Mask(120, 50));
                     Disinfectants.Add(new Disinfectant(400, 230));
                     break;
                 case 2:
+                    RequiredPoints = 12;
+                    Disinfectants.Add(new Disinfectant(800, 450));
                     break;
                 case 3:
+                    RequiredPoints = 16;
+                    Disinfectants.Add(new Disinfectant(350, 630));
                     break;
                 case 4:
+                    RequiredPoints = 20;
+                    Disinfectants.Add(new Disinfectant(520, 380));
+                    Disinfectants.Add(new Disinfectant(120, 570));
                     break;
                 case 5:
+                    RequiredPoints = 25;
+                    Disinfectants.Add(new Disinfectant(150, 620));
+                    Disinfectants.Add(new Disinfectant(1000, 350));
                     break;
             }
 
@@ -216,7 +228,6 @@ namespace Survive2020
                     MessageBox.Show(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
                     Form.ActiveForm.Close();
                     Form1 nextLevel = new Form1(++Form1.CurrentLevel);
-                    EnableButtons();
                     nextLevel.Show();
                 }
                 else
@@ -224,29 +235,9 @@ namespace Survive2020
                     MessageBox.Show("Game finished. Congratulations!");
                 }
             }
-            if (!Goal.IsEnabled && Points >= 5)
+            if (!Goal.IsEnabled && Points >= RequiredPoints)
             {
                 Goal.Enable();
-            }
-        }
-
-        private void EnableButtons()
-        {
-            if (Form1.CurrentLevel == 2)
-            {
-                LevelMenu.btnL2.Enabled = true;
-            }
-            else if (Form1.CurrentLevel == 3)
-            {
-                LevelMenu.btnL3.Enabled = true;
-            }
-            else if (Form1.CurrentLevel == 4)
-            {
-                LevelMenu.btnL4.Enabled = true;
-            }
-            else if (Form1.CurrentLevel == 5)
-            {
-                LevelMenu.btnL5.Enabled = true;
             }
         }
 

@@ -21,7 +21,27 @@ namespace Survive2020
 
         private void LevelMenu_Load(object sender, EventArgs e)
         {
+            EnableButtons();
+        }
 
+        private void EnableButtons()
+        {
+            if (Form1.CurrentLevel == 2)
+            {
+                btnL2.Enabled = true;
+            }
+            else if (Form1.CurrentLevel == 3)
+            {
+                btnL3.Enabled = true;
+            }
+            else if (Form1.CurrentLevel == 4)
+            {
+                btnL4.Enabled = true;
+            }
+            else if (Form1.CurrentLevel == 5)
+            {
+                btnL5.Enabled = true;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

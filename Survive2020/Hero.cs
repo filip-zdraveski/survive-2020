@@ -119,7 +119,7 @@ namespace Survive2020
 
         public bool CheckGoal(Goal goal)
         {
-            if (Level.Points >= 5 && ((X + Width / 2 - goal.CenterX) * (X + Width / 2 - goal.CenterX) + (Y + Height / 2 - goal.CenterY) * (Y + Height / 2 - goal.CenterY) <= 60 * 60))
+            if (goal.IsEnabled && ((X + Width / 2 - goal.CenterX) * (X + Width / 2 - goal.CenterX) + (Y + Height / 2 - goal.CenterY) * (Y + Height / 2 - goal.CenterY) <= 60 * 60))
             {
                 return true;
             }
