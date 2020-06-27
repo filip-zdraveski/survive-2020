@@ -45,7 +45,7 @@ namespace Survive2020
             InvalidateTimer.Interval = 500;
             InvalidateTimer.Start();
 
-            lbPoints.Text = "Points: " + Level.Points;
+            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
 
             switch (CurrentLevel)
             {
@@ -222,7 +222,7 @@ namespace Survive2020
 
         public void UpdatePoints()
         {
-            lbPoints.Text = "Points: " + Level.Points;
+            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
         }
 
         private void Form1_Load(object sender, EventArgs e)
