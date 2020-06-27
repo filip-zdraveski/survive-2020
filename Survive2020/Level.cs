@@ -64,7 +64,7 @@ namespace Survive2020
                     Disinfectants.Add(new Disinfectant(120, 570));
                     break;
                 case 5:
-                    RequiredPoints = 25;
+                    RequiredPoints = 22;
                     Disinfectants.Add(new Disinfectant(150, 620));
                     Disinfectants.Add(new Disinfectant(1000, 350));
                     break;

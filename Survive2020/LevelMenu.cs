@@ -26,19 +26,19 @@ namespace Survive2020
 
         private void EnableButtons()
         {
-            if (Form1.CurrentLevel == 2)
+            if (Form1.CurrentLevel >= 2)
             {
                 btnL2.Enabled = true;
             }
-            else if (Form1.CurrentLevel == 3)
+            if (Form1.CurrentLevel >= 3)
             {
                 btnL3.Enabled = true;
             }
-            else if (Form1.CurrentLevel == 4)
+            if (Form1.CurrentLevel >= 4)
             {
                 btnL4.Enabled = true;
             }
-            else if (Form1.CurrentLevel == 5)
+            if (Form1.CurrentLevel == 5)
             {
                 btnL5.Enabled = true;
             }

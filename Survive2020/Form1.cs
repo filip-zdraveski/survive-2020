@@ -42,7 +42,7 @@ namespace Survive2020
             SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
             InvalidateTimer = new Timer();
             InvalidateTimer.Tick += new EventHandler(InvalidateTimer_Tick);
-            InvalidateTimer.Interval = 1000;
+            InvalidateTimer.Interval = 500;
             InvalidateTimer.Start();
 
             lbPoints.Text = "Points: " + Level.Points;
@@ -79,9 +79,9 @@ namespace Survive2020
                     DarknessIncrement = 30;
                     MaskTimer.Interval = 20000;
                     MaskTimer.Start();
-                    DisinfectantTimer.Interval = 5000;
+                    DisinfectantTimer.Interval = 4000;
                     DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 2000;
+                    DarknessTimer.Interval = 2500;
                     DarknessTimer.Start();
                     SickPersonSpawnTimer.Interval = 3000;
                     SickPersonSpawnTimer.Start();
@@ -92,9 +92,9 @@ namespace Survive2020
                     DarknessIncrement = 35;
                     MaskTimer.Interval = 25000;
                     MaskTimer.Start();
-                    DisinfectantTimer.Interval = 5000;
+                    DisinfectantTimer.Interval = 3500;
                     DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 1500;
+                    DarknessTimer.Interval = 2500;
                     DarknessTimer.Start();
                     SickPersonSpawnTimer.Interval = 3000;
                     SickPersonSpawnTimer.Start();
@@ -105,9 +105,9 @@ namespace Survive2020
                     DarknessIncrement = 40;
                     MaskTimer.Interval = 30000;
                     MaskTimer.Start();
-                    DisinfectantTimer.Interval = 5000;
+                    DisinfectantTimer.Interval = 3000;
                     DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 1000;
+                    DarknessTimer.Interval = 2000;
                     DarknessTimer.Start();
                     SickPersonSpawnTimer.Interval = 3000;
                     SickPersonSpawnTimer.Start();
