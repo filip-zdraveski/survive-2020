@@ -14,8 +14,7 @@ namespace Survive2020
     public partial class Form1 : Form
     {
         private Level Level;
-        public int FormHeight { get; }
-        public int FormWidth { get; }
+        private int labelLvlPoints = 0;
         public static int CurrentLevel = 1;
         public int DarknessIncrement { get; set; }
         public Timer MaskTimer { get; set; }
@@ -23,13 +22,10 @@ namespace Survive2020
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
-        public Timer InvalidateTimer { get; set; }
         public Form1(int currentLevel)
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
-            FormHeight = ActiveForm.Height;
-            FormWidth = ActiveForm.Width;
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
             MaskTimer = new Timer();
@@ -42,10 +38,6 @@ namespace Survive2020
             SickPersonSpawnTimer.Tick += new EventHandler(SickPersonSpawnTimer_Tick);
             SickPersonMoveTimer = new Timer();
             SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
-            InvalidateTimer = new Timer();
-            InvalidateTimer.Tick += new EventHandler(InvalidateTimer_Tick);
-            InvalidateTimer.Interval = 500;
-            InvalidateTimer.Start();
 
             lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
 
@@ -134,7 +126,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddDisinfectant();
-                // Invalidate();
+                Invalidate();
             }
             else
             {
@@ -147,7 +139,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddMask();
-                //Invalidate();
+                Invalidate();
             }
             else
             {
@@ -160,7 +152,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.IncreaseDarkness(DarknessIncrement);
-                // Invalidate();
+                Invalidate();
             }
             else
             {
@@ -173,7 +165,7 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.AddSickPerson();
-                //Invalidate();
+                Invalidate();
             }
             else
             {
@@ -186,18 +178,12 @@ namespace Survive2020
             if (Level.IsEnabled)
             {
                 Level.MoveSickPerson();
-                //Invalidate();
+                Invalidate();
             }
             else
             {
                 SickPersonMoveTimer.Stop();
             }
-        }
-
-        private void InvalidateTimer_Tick(object sender, EventArgs e)
-        {
-            UpdatePoints();
-            Invalidate();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -212,6 +198,11 @@ namespace Survive2020
         {
             Level.KeyDown(e);
             Level.CheckHeroCollisions();
+            if (labelLvlPoints != Level.Points)
+            {
+                UpdatePoints();
+                labelLvlPoints = Level.Points;
+            }
             Invalidate();
         }
 
@@ -229,17 +220,11 @@ namespace Survive2020
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
-            InvalidateTimer.Stop();
         }
 
         public void UpdatePoints()
         {
             lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

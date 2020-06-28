@@ -46,25 +46,25 @@ namespace Survive2020
             switch (LevelNumber)
             {
                 case 1:
-                    RequiredPoints = 10;
+                    RequiredPoints = 6;
                     Masks.Add(new Mask(120, 50));
                     Disinfectants.Add(new Disinfectant(400, 230));
                     break;
                 case 2:
-                    RequiredPoints = 12;
+                    RequiredPoints = 8;
                     Disinfectants.Add(new Disinfectant(800, 450));
                     break;
                 case 3:
-                    RequiredPoints = 16;
+                    RequiredPoints = 10;
                     Disinfectants.Add(new Disinfectant(350, 630));
                     break;
                 case 4:
-                    RequiredPoints = 20;
+                    RequiredPoints = 12;
                     Disinfectants.Add(new Disinfectant(520, 380));
                     Disinfectants.Add(new Disinfectant(120, 570));
                     break;
                 case 5:
-                    RequiredPoints = 22;
+                    RequiredPoints = 14;
                     Disinfectants.Add(new Disinfectant(150, 620));
                     Disinfectants.Add(new Disinfectant(1000, 350));
                     break;
