@@ -94,20 +94,20 @@ namespace Survive2020
         public void AddMask()
         {
             int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Mask.Width - Goal.Width);
-            int y = random.Next(70, Form.ActiveForm.Height - Mask.Height - Mask.Height/2);
+            int y = random.Next(70, Form.ActiveForm.Height - Mask.Height - Mask.Height / 2);
             Masks.Add(new Mask(x, y));
         }
 
         public void AddDisinfectant()
         {
             int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Disinfectant.Width - Goal.Width);
-            int y = random.Next(70, Form.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height/2);
+            int y = random.Next(70, Form.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height / 2);
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
         public void AddSickPerson()
         {
-            int y = random.Next(70, Form.ActiveForm.Height - SickPerson.Height - SickPerson.Height/2);
+            int y = random.Next(70, Form.ActiveForm.Height - SickPerson.Height - SickPerson.Height / 2);
             SickPersons.Add(new SickPerson(Form.ActiveForm.Width - 20, y));
         }
 
@@ -220,9 +220,9 @@ namespace Survive2020
                     }
                 }
             }
-            if (Hero.CheckGoal(Goal))
+            if (Goal.IsEnabled && Hero.CheckGoal(Goal))
             {
-                IsEnabled = false;
+                this.IsEnabled = false;
                 if (LevelNumber < 5)
                 {
                     MessageBox.Show(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
@@ -258,12 +258,19 @@ namespace Survive2020
                     Disinfectants.Remove(Disinfectants[i]);
                 }
             }
+            for (int i = 0; i < SickPersons.Count; i++)
+            {
+                if (Darkness.CheckSickPerson(SickPersons[i]))
+                {
+                    SickPersons.Remove(SickPersons[i]);
+                }
+            }
             if (Hero.CheckDarkness(Darkness))
             {
                 IsEnabled = false;
                 MessageBox.Show("The darkness caught you. Game over!");
                 Form.ActiveForm.Close();
             }
-        }    
+        }
     }
 }

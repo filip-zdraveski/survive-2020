@@ -49,6 +49,15 @@ namespace Survive2020
             return false;
         }
 
+        public bool CheckSickPerson(SickPerson sickPerson)
+        {
+            if (sickPerson.CenterX <= End + Width)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void Increase(int width)
         {
             Width += width;

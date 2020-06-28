@@ -54,7 +54,7 @@ namespace Survive2020
 
         public void MoveRight()
         {
-            if (X <= Form1.ActiveForm.Width - 10 - Width)
+            if (X <= Form1.ActiveForm.Width - Width - Width / 2)
             {
                 X += 10;
             }
@@ -70,7 +70,7 @@ namespace Survive2020
 
         public void MoveDown()
         {
-            if (Y <= Form1.ActiveForm.Height - 10 - Height)
+            if (Y <= Form1.ActiveForm.Height - Height - Height / 2 - 10)
             {
                 Y += 10;
             }
@@ -119,7 +119,7 @@ namespace Survive2020
 
         public bool CheckGoal(Goal goal)
         {
-            if (goal.IsEnabled && ((X + Width / 2 - goal.CenterX) * (X + Width / 2 - goal.CenterX) + (Y + Height / 2 - goal.CenterY) * (Y + Height / 2 - goal.CenterY) <= 60 * 60))
+            if ((X + Width / 2 - goal.CenterX) * (X + Width / 2 - goal.CenterX) + (Y + Height / 2 - goal.CenterY) * (Y + Height / 2 - goal.CenterY) <= 60 * 60)
             {
                 return true;
             }
