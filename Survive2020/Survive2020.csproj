@@ -121,9 +121,13 @@
     <None Include="Resources\corona.jpg" />
     <None Include="Resources\goal.png" />
     <None Include="Resources\goal_disabled.png" />
+    <None Include="Resources\cair.jpg" />
+    <None Include="Resources\avenue.jpg" />
     <Content Include="Resources\empty_heart.png" />
+    <Content Include="Resources\gtc.jpg" />
     <Content Include="Resources\heart.png" />
-    <Content Include="Resources\start_menu_background.png" />
+    <None Include="Resources\jsp.jpg" />
+    <Content Include="Resources\park.jpg" />
     <Content Include="Resources\mask.png" />
     <Content Include="Resources\masked_hero.png" />
     <Content Include="Resources\sick_emoji.png" />

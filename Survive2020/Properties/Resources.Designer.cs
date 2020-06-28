@@ -63,6 +63,26 @@ namespace Survive2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avenue {
+            get {
+                object obj = ResourceManager.GetObject("avenue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cair {
+            get {
+                object obj = ResourceManager.GetObject("cair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap corona {
             get {
                 object obj = ResourceManager.GetObject("corona", resourceCulture);
@@ -113,6 +133,16 @@ namespace Survive2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gtc {
+            get {
+                object obj = ResourceManager.GetObject("gtc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap heart {
             get {
                 object obj = ResourceManager.GetObject("heart", resourceCulture);
@@ -126,6 +156,16 @@ namespace Survive2020.Properties {
         internal static System.Drawing.Bitmap hero {
             get {
                 object obj = ResourceManager.GetObject("hero", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jsp {
+            get {
+                object obj = ResourceManager.GetObject("jsp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,6 +193,16 @@ namespace Survive2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap park {
+            get {
+                object obj = ResourceManager.GetObject("park", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sick_emoji {
             get {
                 object obj = ResourceManager.GetObject("sick_emoji", resourceCulture);
@@ -166,16 +216,6 @@ namespace Survive2020.Properties {
         internal static string sick_emoji_png {
             get {
                 return ResourceManager.GetString("sick_emoji.png", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap start_menu_background {
-            get {
-                object obj = ResourceManager.GetObject("start_menu_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

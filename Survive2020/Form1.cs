@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Survive2020.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,8 @@ namespace Survive2020
                     SickPersonSpawnTimer.Start();
                     SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
+                    this.BackgroundImage = Resources.park;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 2:
                     DarknessIncrement = 25;
@@ -74,6 +77,8 @@ namespace Survive2020
                     SickPersonSpawnTimer.Start();
                     SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
+                    this.BackgroundImage = Resources.gtc;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 3:
                     DarknessIncrement = 30;
@@ -87,6 +92,8 @@ namespace Survive2020
                     SickPersonSpawnTimer.Start();
                     SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
+                    this.BackgroundImage = Resources.cair;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 4:
                     DarknessIncrement = 35;
@@ -100,6 +107,8 @@ namespace Survive2020
                     SickPersonSpawnTimer.Start();
                     SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
+                    this.BackgroundImage = Resources.jsp;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 5:
                     DarknessIncrement = 40;
@@ -113,6 +122,8 @@ namespace Survive2020
                     SickPersonSpawnTimer.Start();
                     SickPersonMoveTimer.Interval = 500;
                     SickPersonMoveTimer.Start();
+                    this.BackgroundImage = Resources.avenue;
+                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
             }
         }

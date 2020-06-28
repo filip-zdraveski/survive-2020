@@ -40,7 +40,7 @@
             this.lbPoints.Location = new System.Drawing.Point(16, 9);
             this.lbPoints.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lbPoints.Name = "lbPoints";
-            this.lbPoints.Size = new System.Drawing.Size(110, 30);
+            this.lbPoints.Size = new System.Drawing.Size(141, 37);
             this.lbPoints.TabIndex = 0;
             this.lbPoints.Text = "Points: ";
             // 
@@ -53,13 +53,13 @@
             this.lblLevelNumber.Location = new System.Drawing.Point(643, 9);
             this.lblLevelNumber.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblLevelNumber.Name = "lblLevelNumber";
-            this.lblLevelNumber.Size = new System.Drawing.Size(102, 37);
+            this.lblLevelNumber.Size = new System.Drawing.Size(126, 46);
             this.lblLevelNumber.TabIndex = 1;
             this.lblLevelNumber.Text = "Level";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1370, 749);
