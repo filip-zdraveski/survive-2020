@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnHowToPlay = new System.Windows.Forms.Button();
             this.btnLevel = new System.Windows.Forms.Button();
@@ -43,7 +44,7 @@
             this.btnStart.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.GhostWhite;
             this.btnStart.Location = new System.Drawing.Point(170, 172);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(368, 37);
             this.btnStart.TabIndex = 0;
@@ -59,7 +60,7 @@
             this.btnHowToPlay.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHowToPlay.ForeColor = System.Drawing.Color.GhostWhite;
             this.btnHowToPlay.Location = new System.Drawing.Point(170, 300);
-            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(2);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(368, 37);
             this.btnHowToPlay.TabIndex = 1;
@@ -75,7 +76,7 @@
             this.btnLevel.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLevel.ForeColor = System.Drawing.Color.GhostWhite;
             this.btnLevel.Location = new System.Drawing.Point(170, 236);
-            this.btnLevel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLevel.Margin = new System.Windows.Forms.Padding(2);
             this.btnLevel.Name = "btnLevel";
             this.btnLevel.Size = new System.Drawing.Size(368, 37);
             this.btnLevel.TabIndex = 2;
@@ -124,7 +125,8 @@
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(737, 509);
             this.MinimizeBox = false;
