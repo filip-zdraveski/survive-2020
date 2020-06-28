@@ -27,6 +27,7 @@ namespace Survive2020
         public Form1(int currentLevel)
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             FormHeight = ActiveForm.Height;
             FormWidth = ActiveForm.Width;
             CurrentLevel = currentLevel;
