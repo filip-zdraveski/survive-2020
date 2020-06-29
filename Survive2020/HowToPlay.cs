@@ -34,5 +34,10 @@ namespace Survive2020
         {
             this.Close();
         }
+
+        private void richTextBox1_Enter(object sender, EventArgs e)
+        {
+            label1.Focus();
+        }
     }
 }
