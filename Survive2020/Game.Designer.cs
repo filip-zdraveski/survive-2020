@@ -1,6 +1,6 @@
 ﻿namespace Survive2020
 {
-    partial class Form1
+    partial class Game
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.lbPoints = new System.Windows.Forms.Label();
             this.lblLevelNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.lblLevelNumber.TabIndex = 1;
             this.lblLevelNumber.Text = "Level";
             // 
-            // Form1
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -73,13 +73,13 @@
             this.Margin = new System.Windows.Forms.Padding(7, 4, 7, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
-            this.Activated += new System.EventHandler(this.Form1_Activated);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.Activated += new System.EventHandler(this.Game_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Game_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

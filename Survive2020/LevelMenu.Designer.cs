@@ -49,7 +49,6 @@
             this.label1.Size = new System.Drawing.Size(586, 98);
             this.label1.TabIndex = 4;
             this.label1.Text = "Choose Level";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnL1
             // 
@@ -174,7 +173,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
             this.Activated += new System.EventHandler(this.LevelMenu_Activated);
-            this.Load += new System.EventHandler(this.LevelMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

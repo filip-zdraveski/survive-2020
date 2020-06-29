@@ -19,34 +19,24 @@ namespace Survive2020
             this.menu = menu;
         }
 
-        private void LevelMenu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void EnableButtons()
         {
-            if (Form1.CurrentLevel >= 2)
+            if (Game.CurrentLevel >= 2)
             {
                 btnL2.Enabled = true;
             }
-            if (Form1.CurrentLevel >= 3)
+            if (Game.CurrentLevel >= 3)
             {
                 btnL3.Enabled = true;
             }
-            if (Form1.CurrentLevel >= 4)
+            if (Game.CurrentLevel >= 4)
             {
                 btnL4.Enabled = true;
             }
-            if (Form1.CurrentLevel == 5)
+            if (Game.CurrentLevel == 5)
             {
                 btnL5.Enabled = true;
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -56,31 +46,31 @@ namespace Survive2020
 
         private void btnL1_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(1);
+            Game game = new Game(1);
             game.Show();
         }
 
         private void btnL2_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(2);
+            Game game = new Game(2);
             game.Show();
         }
 
         private void btnL3_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(3);
+            Game game = new Game(3);
             game.Show();
         }
 
         private void btnL4_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(4);
+            Game game = new Game(4);
             game.Show();
         }
 
         private void btnL5_Click(object sender, EventArgs e)
         {
-            Form1 game = new Form1(5);
+            Game game = new Game(5);
             game.Show();
         }
 

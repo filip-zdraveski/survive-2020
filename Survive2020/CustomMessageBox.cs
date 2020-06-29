@@ -13,11 +13,11 @@ namespace Survive2020
 {
     public partial class CustomMessageBox : Form
     {
-        public bool BtnNextLvl { get; set; }
-        public CustomMessageBox(bool btnNextLvl)
+        public bool HasNextLevel { get; set; }
+        public CustomMessageBox(bool hasNextLevel)
         {
             InitializeComponent();
-            BtnNextLvl = btnNextLvl;
+            HasNextLevel = hasNextLevel;
             SetButtonText();
         }
 
@@ -28,25 +28,36 @@ namespace Survive2020
 
         public void SetButtonText()
         {
-            if (BtnNextLvl)
+            if (HasNextLevel)
             {
-                btnAction.Text = "Next level";
+                btnLeft.Text = "Next level";
             }
             else
             {
-                btnAction.Text = "Exit game";
+                btnLeft.Text = "Retry";
             }
         }
 
-        private void btnAction_Click(object sender, EventArgs e)
+        private void btnLeft_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form1.ActiveForm.Close();
-            if (BtnNextLvl)
+            Game.ActiveForm.Close();
+            if (HasNextLevel)
             {
-                Form1 nextLevel = new Form1(++Form1.CurrentLevel);
+                Game nextLevel = new Game(++Game.CurrentLevel);
                 nextLevel.Show();
             }
+            else
+            {
+                Game replay = new Game(Game.CurrentLevel);
+                replay.Show();
+            }
+        }
+
+        private void btnRight_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Game.ActiveForm.Close();
         }
     }
 }

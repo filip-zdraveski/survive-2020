@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.lbMessage = new System.Windows.Forms.Label();
-            this.btnAction = new System.Windows.Forms.Button();
+            this.btnRight = new System.Windows.Forms.Button();
+            this.btnLeft = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbMessage
@@ -44,20 +45,35 @@
             this.lbMessage.TabIndex = 0;
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAction
+            // btnRight
             // 
-            this.btnAction.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnAction.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAction.Font = new System.Drawing.Font("Showcard Gothic", 12F);
-            this.btnAction.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAction.Location = new System.Drawing.Point(212, 191);
-            this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(155, 52);
-            this.btnAction.TabIndex = 1;
-            this.btnAction.Text = "Button";
-            this.btnAction.UseVisualStyleBackColor = false;
-            this.btnAction.Click += new System.EventHandler(this.btnAction_Click);
+            this.btnRight.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnRight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRight.Font = new System.Drawing.Font("Showcard Gothic", 12F);
+            this.btnRight.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnRight.Location = new System.Drawing.Point(317, 191);
+            this.btnRight.Name = "btnRight";
+            this.btnRight.Size = new System.Drawing.Size(155, 52);
+            this.btnRight.TabIndex = 1;
+            this.btnRight.Text = "Exit game";
+            this.btnRight.UseVisualStyleBackColor = false;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            // 
+            // btnLeft
+            // 
+            this.btnLeft.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnLeft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLeft.Font = new System.Drawing.Font("Showcard Gothic", 12F);
+            this.btnLeft.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLeft.Location = new System.Drawing.Point(94, 191);
+            this.btnLeft.Name = "btnLeft";
+            this.btnLeft.Size = new System.Drawing.Size(155, 52);
+            this.btnLeft.TabIndex = 1;
+            this.btnLeft.Text = "Button";
+            this.btnLeft.UseVisualStyleBackColor = false;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // CustomMessageBox
             // 
@@ -67,7 +83,8 @@
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
             this.ClientSize = new System.Drawing.Size(577, 266);
             this.ControlBox = false;
-            this.Controls.Add(this.btnAction);
+            this.Controls.Add(this.btnLeft);
+            this.Controls.Add(this.btnRight);
             this.Controls.Add(this.lbMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
@@ -83,6 +100,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbMessage;
-        private System.Windows.Forms.Button btnAction;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Button btnLeft;
     }
 }

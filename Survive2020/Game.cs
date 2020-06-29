@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Survive2020
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         private Level Level;
         private int labelLvlPoints = 0;
@@ -22,12 +22,14 @@ namespace Survive2020
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
-        public Form1(int currentLevel)
+        public Game(int currentLevel)
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+
             CurrentLevel = currentLevel;
-            Level = new Level(CurrentLevel);
+            Level = new Level(CurrentLevel, 6 * CurrentLevel - 4 * (CurrentLevel - 1));
+
             MaskTimer = new Timer();
             MaskTimer.Tick += new EventHandler(MaskTimer_Tick);
             DisinfectantTimer = new Timer();
@@ -39,85 +41,58 @@ namespace Survive2020
             SickPersonMoveTimer = new Timer();
             SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
 
-            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
+            InitializeTimers();
+
+            UpdatePoints();
 
             switch (CurrentLevel)
             {
                 case 1:
-                    DarknessIncrement = 20;
-                    MaskTimer.Interval = 10000;
-                    MaskTimer.Start();
-                    DisinfectantTimer.Interval = 5000;
-                    DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 3000;
-                    DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 3000;
-                    SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 500;
-                    SickPersonMoveTimer.Start();
                     this.BackgroundImage = Resources.park;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 2:
-                    DarknessIncrement = 25;
-                    MaskTimer.Interval = 15000;
-                    MaskTimer.Start();
-                    DisinfectantTimer.Interval = 5000;
-                    DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 2500;
-                    DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 3000;
-                    SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 500;
-                    SickPersonMoveTimer.Start();
                     this.BackgroundImage = Resources.gtc;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 3:
-                    DarknessIncrement = 30;
-                    MaskTimer.Interval = 20000;
-                    MaskTimer.Start();
-                    DisinfectantTimer.Interval = 4000;
-                    DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 2500;
-                    DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 3000;
-                    SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 500;
-                    SickPersonMoveTimer.Start();
                     this.BackgroundImage = Resources.cair;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 4:
-                    DarknessIncrement = 35;
-                    MaskTimer.Interval = 25000;
-                    MaskTimer.Start();
-                    DisinfectantTimer.Interval = 3500;
-                    DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 2500;
-                    DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 3000;
-                    SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 500;
-                    SickPersonMoveTimer.Start();
                     this.BackgroundImage = Resources.jsp;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
                 case 5:
-                    DarknessIncrement = 40;
-                    MaskTimer.Interval = 30000;
-                    MaskTimer.Start();
-                    DisinfectantTimer.Interval = 3000;
-                    DisinfectantTimer.Start();
-                    DarknessTimer.Interval = 2000;
-                    DarknessTimer.Start();
-                    SickPersonSpawnTimer.Interval = 3000;
-                    SickPersonSpawnTimer.Start();
-                    SickPersonMoveTimer.Interval = 500;
-                    SickPersonMoveTimer.Start();
                     this.BackgroundImage = Resources.avenue;
-                    this.BackgroundImageLayout = ImageLayout.Stretch;
                     break;
+            }
+
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void InitializeTimers()
+        {
+            MaskTimer.Interval = 10000 * CurrentLevel - 5000 * (CurrentLevel - 1);
+            DisinfectantTimer.Interval = 5000 * CurrentLevel - 5500 * (CurrentLevel - 1);
+            DarknessTimer.Interval = 3000 * CurrentLevel - 3250 * (CurrentLevel - 1);
+            DarknessIncrement = 20 * CurrentLevel - 15 * (CurrentLevel - 1);
+            SickPersonSpawnTimer.Interval = 3000;
+            SickPersonMoveTimer.Interval = 500;
+
+            MaskTimer.Start();
+            DisinfectantTimer.Start();
+            DarknessTimer.Start();
+            SickPersonSpawnTimer.Start();
+            SickPersonMoveTimer.Start();
+        }
+
+        private void MaskTimer_Tick(object sender, EventArgs e)
+        {
+            if (Level.IsEnabled)
+            {
+                Level.AddMask();
+                Invalidate();
+            }
+            else
+            {
+                MaskTimer.Stop();
             }
         }
 
@@ -131,19 +106,6 @@ namespace Survive2020
             else
             {
                 DisinfectantTimer.Stop();
-            }
-        }
-
-        private void MaskTimer_Tick(object sender, EventArgs e)
-        {
-            if (Level.IsEnabled)
-            {
-                Level.AddMask();
-                Invalidate();
-            }
-            else
-            {
-                MaskTimer.Stop();
             }
         }
 
@@ -186,7 +148,7 @@ namespace Survive2020
             }
         }
 
-        private void Form1_Paint(object sender, PaintEventArgs e)
+        private void Game_Paint(object sender, PaintEventArgs e)
         {
             if (Level.IsEnabled)
             {
@@ -194,7 +156,12 @@ namespace Survive2020
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void UpdatePoints()
+        {
+            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
+        }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e)
         {
             Level.KeyDown(e);
             Level.CheckHeroCollisions();
@@ -206,25 +173,20 @@ namespace Survive2020
             Invalidate();
         }
 
-        private void Form1_Activated(object sender, EventArgs e)
+        private void Game_Activated(object sender, EventArgs e)
         {
             lblLevelNumber.Text = "Level " + CurrentLevel;
             Level.Darkness = new Darkness(0, 0, 10, ActiveForm.Height);
             Level.Goal = new Goal(ActiveForm.Width - 100, ActiveForm.Height - 110);
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             DisinfectantTimer.Stop();
             MaskTimer.Stop();
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
-        }
-
-        public void UpdatePoints()
-        {
-            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
         }
     }
 }

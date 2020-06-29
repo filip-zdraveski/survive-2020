@@ -30,9 +30,10 @@ namespace Survive2020
         public readonly int HeartWidth = 50;
         public readonly int HeartHeight = 50;
 
-        public Level(int levelNumber)
+        public Level(int levelNumber, int requiredPoints)
         {
             LevelNumber = levelNumber;
+            RequiredPoints = requiredPoints;
             IsEnabled = true;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
@@ -43,33 +44,28 @@ namespace Survive2020
             Heart3 = Resources.heart;
             random = new Random();
             Points = 0;
+
             switch (LevelNumber)
             {
                 case 1:
-                    RequiredPoints = 6;
                     Masks.Add(new Mask(120, 50));
                     Disinfectants.Add(new Disinfectant(400, 230));
                     break;
                 case 2:
-                    RequiredPoints = 8;
                     Disinfectants.Add(new Disinfectant(800, 450));
                     break;
                 case 3:
-                    RequiredPoints = 10;
                     Disinfectants.Add(new Disinfectant(350, 630));
                     break;
                 case 4:
-                    RequiredPoints = 12;
                     Disinfectants.Add(new Disinfectant(520, 380));
                     Disinfectants.Add(new Disinfectant(120, 570));
                     break;
                 case 5:
-                    RequiredPoints = 14;
                     Disinfectants.Add(new Disinfectant(150, 620));
                     Disinfectants.Add(new Disinfectant(1000, 350));
                     break;
             }
-
         }
         public void KeyDown(KeyEventArgs e)
         {
@@ -115,7 +111,6 @@ namespace Survive2020
         {
             Darkness.Increase(width);
             CheckDarknessCollisions();
-            Form1.ActiveForm.Invalidate();
         }
 
         public void Draw(Graphics g)
