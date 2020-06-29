@@ -155,8 +155,9 @@ namespace Survive2020
                     if (Hero.Lives == 0)
                     {
                         IsEnabled = false;
-                        MessageBox.Show("You lost all your lives. Game over!");
-                        Form.ActiveForm.Close();
+                        CustomMessageBox cmb = new CustomMessageBox(false);
+                        cmb.SetMessage("You lost all your lives. Game over!");
+                        cmb.Show();
                         break;
                     }
                 }
@@ -199,8 +200,9 @@ namespace Survive2020
             if (Hero.CheckDarkness(Darkness))
             {
                 IsEnabled = false;
-                MessageBox.Show("The darkness caught you. Game over!");
-                Form.ActiveForm.Close();
+                CustomMessageBox cmb = new CustomMessageBox(false);
+                cmb.SetMessage("The darkness caught you. Game over!");
+                cmb.Show();
             }
             if (!Hero.Masked)
             {
@@ -214,8 +216,9 @@ namespace Survive2020
                     if (Hero.Lives == 0)
                     {
                         IsEnabled = false;
-                        MessageBox.Show("You lost all your lives. Game over!");
-                        Form.ActiveForm.Close();
+                        CustomMessageBox cmb = new CustomMessageBox(false);
+                        cmb.SetMessage("You lost all your lives. Game over!");
+                        cmb.Show();
                         break;
                     }
                 }
@@ -225,15 +228,15 @@ namespace Survive2020
                 this.IsEnabled = false;
                 if (LevelNumber < 5)
                 {
-                    MessageBox.Show(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
-                    Form.ActiveForm.Close();
-                    Form1 nextLevel = new Form1(++Form1.CurrentLevel);
-                    nextLevel.Show();
+                    CustomMessageBox cmb = new CustomMessageBox(true);
+                    cmb.SetMessage(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
+                    cmb.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Game finished. Congratulations!");
-                    Form.ActiveForm.Close();
+                    CustomMessageBox cmb = new CustomMessageBox(false);
+                    cmb.SetMessage("Game finished. Congratulations!");
+                    cmb.Show();
                 }
             }
             if (!Goal.IsEnabled && Points >= RequiredPoints)
@@ -268,8 +271,9 @@ namespace Survive2020
             if (Hero.CheckDarkness(Darkness))
             {
                 IsEnabled = false;
-                MessageBox.Show("The darkness caught you. Game over!");
-                Form.ActiveForm.Close();
+                CustomMessageBox cmb = new CustomMessageBox(false);
+                cmb.SetMessage("The darkness caught you. Game over!");
+                cmb.Show();
             }
         }
     }
