@@ -28,7 +28,7 @@ namespace Survive2020
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
             CurrentLevel = currentLevel;
-            Level = new Level(CurrentLevel, 6 * CurrentLevel - 4 * (CurrentLevel - 1));
+            Level = new Level(CurrentLevel);
 
             MaskTimer = new Timer();
             MaskTimer.Tick += new EventHandler(MaskTimer_Tick);
@@ -69,12 +69,12 @@ namespace Survive2020
 
         private void InitializeTimers()
         {
-            MaskTimer.Interval = 10000 * CurrentLevel - 5000 * (CurrentLevel - 1);
-            DisinfectantTimer.Interval = 5000 * CurrentLevel - 5500 * (CurrentLevel - 1);
-            DarknessTimer.Interval = 3000 * CurrentLevel - 3250 * (CurrentLevel - 1);
-            DarknessIncrement = 20 * CurrentLevel - 15 * (CurrentLevel - 1);
-            SickPersonSpawnTimer.Interval = 3000;
-            SickPersonMoveTimer.Interval = 500;
+            MaskTimer.Interval = 5000 + 5000 * CurrentLevel;
+            DisinfectantTimer.Interval = 5500 - 500 * CurrentLevel;
+            DarknessTimer.Interval = 3250 - 250 * CurrentLevel;
+            DarknessIncrement = 15 + 5 * CurrentLevel;
+            SickPersonSpawnTimer.Interval = 3250 - 250 * CurrentLevel;
+            SickPersonMoveTimer.Interval = 550 - 50 * CurrentLevel;
 
             MaskTimer.Start();
             DisinfectantTimer.Start();

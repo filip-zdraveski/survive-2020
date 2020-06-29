@@ -30,10 +30,10 @@ namespace Survive2020
         public readonly int HeartWidth = 50;
         public readonly int HeartHeight = 50;
 
-        public Level(int levelNumber, int requiredPoints)
+        public Level(int levelNumber)
         {
             LevelNumber = levelNumber;
-            RequiredPoints = requiredPoints;
+            RequiredPoints = 4 + 2 * LevelNumber;
             IsEnabled = true;
             Masks = new List<Mask>();
             Disinfectants = new List<Disinfectant>();
