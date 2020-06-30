@@ -14,6 +14,7 @@ namespace Survive2020
     public partial class Game : Form
     {
         private Level Level;
+        private int AutoMoveInterval { get; set; }
         private int labelLvlPoints = 0;
         public static int CurrentLevel = 1;
         public int DarknessIncrement { get; set; }
@@ -169,6 +170,16 @@ namespace Survive2020
             {
                 UpdatePoints();
                 labelLvlPoints = Level.Points;
+            }
+            if (Level.SickPersons.Count >= 3)
+            {
+                ++AutoMoveInterval;
+                if (AutoMoveInterval == 30)
+                {
+                    Level.MoveSickPerson();
+                    Level.IncreaseDarkness(DarknessIncrement);
+                    AutoMoveInterval = 0;
+                }
             }
             Invalidate();
         }
