@@ -66,6 +66,8 @@ namespace Survive2020
             }
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
+            this.btnPause.FlatAppearance.BorderSize = 0;
+           
         }
 
         private void InitializeTimers()
@@ -199,5 +201,12 @@ namespace Survive2020
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
         }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

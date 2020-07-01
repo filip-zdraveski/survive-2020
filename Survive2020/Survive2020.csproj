@@ -148,6 +148,7 @@
     <Content Include="Resources\park.jpg" />
     <Content Include="Resources\mask.png" />
     <Content Include="Resources\masked_hero.png" />
+    <None Include="Resources\pause_icon.png" />
     <Content Include="Resources\sick_emoji.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -100,6 +100,7 @@
             this.Controls.Add(this.lbPause);
             this.Controls.Add(this.btnSave);
             this.Name = "Pause";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pause";
             this.Load += new System.EventHandler(this.Pause_Load);
             this.ResumeLayout(false);
