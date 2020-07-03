@@ -59,5 +59,10 @@ namespace Survive2020
             this.Close();
             Game.ActiveForm.Close();
         }
+
+        private void CustomMessageBox_Deactivate(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

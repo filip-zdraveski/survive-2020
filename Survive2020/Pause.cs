@@ -35,7 +35,7 @@ namespace Survive2020
 
         private void Pause_Deactivate(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

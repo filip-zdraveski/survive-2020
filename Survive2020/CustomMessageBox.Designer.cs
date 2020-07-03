@@ -93,6 +93,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Deactivate += new System.EventHandler(this.CustomMessageBox_Deactivate);
             this.ResumeLayout(false);
 
         }
