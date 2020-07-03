@@ -29,13 +29,13 @@ namespace Survive2020
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Game.ActiveForm.Close();
+            this.Close();
+            ActiveForm.Close();
         }
 
         private void Pause_Deactivate(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
     }
 }

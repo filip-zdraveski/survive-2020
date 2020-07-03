@@ -31,6 +31,7 @@ namespace Survive2020
 
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
+            IsPaused = false;
 
             MaskTimer = new Timer();
             MaskTimer.Tick += new EventHandler(MaskTimer_Tick);
