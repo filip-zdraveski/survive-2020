@@ -14,6 +14,7 @@ namespace Survive2020
     public partial class Game : Form
     {
         private Level Level;
+        public static bool IsPaused { get; set; }
         private int AutoMoveInterval { get; set; }
         private int labelLvlPoints = 0;
         public static int CurrentLevel = 1;
@@ -66,8 +67,6 @@ namespace Survive2020
             }
 
             this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.btnPause.FlatAppearance.BorderSize = 0;
-           
         }
 
         private void InitializeTimers()
@@ -79,11 +78,7 @@ namespace Survive2020
             SickPersonSpawnTimer.Interval = 3250 - 250 * CurrentLevel;
             SickPersonMoveTimer.Interval = 550 - 50 * CurrentLevel;
 
-            MaskTimer.Start();
-            DisinfectantTimer.Start();
-            DarknessTimer.Start();
-            SickPersonSpawnTimer.Start();
-            SickPersonMoveTimer.Start();
+            StartTimers();
         }
 
         private void MaskTimer_Tick(object sender, EventArgs e)
@@ -166,24 +161,27 @@ namespace Survive2020
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
         {
-            Level.KeyDown(e);
-            Level.CheckHeroCollisions();
-            if (labelLvlPoints != Level.Points)
+            if (!IsPaused)
             {
-                UpdatePoints();
-                labelLvlPoints = Level.Points;
-            }
-            if (Level.SickPersons.Count >= 3)
-            {
-                ++AutoMoveInterval;
-                if (AutoMoveInterval == 30)
+                Level.KeyDown(e);
+                Level.CheckHeroCollisions();
+                if (labelLvlPoints != Level.Points)
                 {
-                    Level.MoveSickPerson();
-                    Level.IncreaseDarkness(DarknessIncrement);
-                    AutoMoveInterval = 0;
+                    UpdatePoints();
+                    labelLvlPoints = Level.Points;
                 }
+                if (Level.SickPersons.Count >= 3)
+                {
+                    ++AutoMoveInterval;
+                    if (AutoMoveInterval == 30)
+                    {
+                        Level.MoveSickPerson();
+                        Level.IncreaseDarkness(DarknessIncrement);
+                        AutoMoveInterval = 0;
+                    }
+                }
+                Invalidate();
             }
-            Invalidate();
         }
 
         private void Game_Activated(object sender, EventArgs e)
@@ -195,18 +193,43 @@ namespace Survive2020
 
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
+            StopTimers();
+        }
+
+        private void pause_Click(object sender, EventArgs e)
+        {
+            if (!IsPaused)
+            {
+                StopTimers();
+                IsPaused = true;
+                pause.Image = Resources.play_icon;
+                Pause pauseForm = new Pause();
+                pauseForm.Show();
+            }
+            else
+            {
+                StartTimers();
+                IsPaused = false;
+                pause.Image = Resources.pause_icon;
+            }
+        }
+
+        private void StartTimers()
+        {
+            DisinfectantTimer.Start();
+            MaskTimer.Start();
+            DarknessTimer.Start();
+            SickPersonSpawnTimer.Start();
+            SickPersonMoveTimer.Start();
+        }
+
+        private void StopTimers()
+        {
             DisinfectantTimer.Stop();
             MaskTimer.Stop();
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
         }
-
-        private void Game_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }

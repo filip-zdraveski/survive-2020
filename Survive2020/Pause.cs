@@ -22,9 +22,20 @@ namespace Survive2020
 
         }
 
-        private void btnQuit_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Game.ActiveForm.Close();
+        }
+
+        private void Pause_Deactivate(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

@@ -213,9 +213,9 @@ namespace Survive2020.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pause_icon1 {
+        internal static System.Drawing.Bitmap play_icon {
             get {
-                object obj = ResourceManager.GetObject("pause_icon1", resourceCulture);
+                object obj = ResourceManager.GetObject("play_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -227,15 +227,6 @@ namespace Survive2020.Properties {
             get {
                 object obj = ResourceManager.GetObject("sick_emoji", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string sick_emoji_png {
-            get {
-                return ResourceManager.GetString("sick_emoji.png", resourceCulture);
             }
         }
     }
