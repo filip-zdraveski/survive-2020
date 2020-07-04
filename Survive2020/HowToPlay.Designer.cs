@@ -92,6 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
             this.ClientSize = new System.Drawing.Size(721, 470);
+            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);

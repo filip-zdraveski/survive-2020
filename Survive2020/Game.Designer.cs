@@ -80,6 +80,7 @@ namespace Survive2020
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ControlBox = false;
             this.Controls.Add(this.pause);
             this.Controls.Add(this.lblLevelNumber);
             this.Controls.Add(this.lbPoints);

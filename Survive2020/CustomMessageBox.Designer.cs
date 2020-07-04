@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomMessageBox));
             this.lbMessage = new System.Windows.Forms.Label();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnLeft = new System.Windows.Forms.Button();
@@ -38,10 +39,11 @@
             this.lbMessage.BackColor = System.Drawing.Color.Transparent;
             this.lbMessage.Font = new System.Drawing.Font("Showcard Gothic", 20F);
             this.lbMessage.ForeColor = System.Drawing.SystemColors.Window;
-            this.lbMessage.Location = new System.Drawing.Point(25, 26);
-            this.lbMessage.MaximumSize = new System.Drawing.Size(540, 150);
+            this.lbMessage.Location = new System.Drawing.Point(19, 21);
+            this.lbMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbMessage.MaximumSize = new System.Drawing.Size(405, 122);
             this.lbMessage.Name = "lbMessage";
-            this.lbMessage.Size = new System.Drawing.Size(540, 150);
+            this.lbMessage.Size = new System.Drawing.Size(405, 122);
             this.lbMessage.TabIndex = 0;
             this.lbMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -52,9 +54,10 @@
             this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRight.Font = new System.Drawing.Font("Showcard Gothic", 12F);
             this.btnRight.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnRight.Location = new System.Drawing.Point(317, 191);
+            this.btnRight.Location = new System.Drawing.Point(238, 155);
+            this.btnRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(155, 52);
+            this.btnRight.Size = new System.Drawing.Size(116, 42);
             this.btnRight.TabIndex = 1;
             this.btnRight.Text = "Exit game";
             this.btnRight.UseVisualStyleBackColor = false;
@@ -67,9 +70,10 @@
             this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLeft.Font = new System.Drawing.Font("Showcard Gothic", 12F);
             this.btnLeft.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLeft.Location = new System.Drawing.Point(94, 191);
+            this.btnLeft.Location = new System.Drawing.Point(70, 155);
+            this.btnLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(155, 52);
+            this.btnLeft.Size = new System.Drawing.Size(116, 42);
             this.btnLeft.TabIndex = 1;
             this.btnLeft.Text = "Button";
             this.btnLeft.UseVisualStyleBackColor = false;
@@ -77,23 +81,25 @@
             // 
             // CustomMessageBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
-            this.ClientSize = new System.Drawing.Size(577, 266);
+            this.ClientSize = new System.Drawing.Size(433, 216);
             this.ControlBox = false;
             this.Controls.Add(this.btnLeft);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.lbMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CustomMessageBox";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Deactivate += new System.EventHandler(this.CustomMessageBox_Deactivate);
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

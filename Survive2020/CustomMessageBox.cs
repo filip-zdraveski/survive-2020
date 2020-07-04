@@ -59,10 +59,5 @@ namespace Survive2020
             Close();
             ActiveForm.Close();
         }
-
-        private void CustomMessageBox_Deactivate(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }
