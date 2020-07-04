@@ -40,8 +40,8 @@ namespace Survive2020
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Game.ActiveForm.Close();
+            Close();
+            ActiveForm.Close();
             if (HasNextLevel)
             {
                 Game nextLevel = new Game(++Game.CurrentLevel);
@@ -56,13 +56,13 @@ namespace Survive2020
 
         private void btnRight_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Game.ActiveForm.Close();
+            Close();
+            ActiveForm.Close();
         }
 
         private void CustomMessageBox_Deactivate(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

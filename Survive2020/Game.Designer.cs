@@ -45,7 +45,7 @@ namespace Survive2020
             this.lbPoints.Location = new System.Drawing.Point(16, 9);
             this.lbPoints.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lbPoints.Name = "lbPoints";
-            this.lbPoints.Size = new System.Drawing.Size(141, 37);
+            this.lbPoints.Size = new System.Drawing.Size(110, 30);
             this.lbPoints.TabIndex = 0;
             this.lbPoints.Text = "Points: ";
             // 
@@ -58,7 +58,7 @@ namespace Survive2020
             this.lblLevelNumber.Location = new System.Drawing.Point(643, 9);
             this.lblLevelNumber.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.lblLevelNumber.Name = "lblLevelNumber";
-            this.lblLevelNumber.Size = new System.Drawing.Size(126, 46);
+            this.lblLevelNumber.Size = new System.Drawing.Size(102, 37);
             this.lblLevelNumber.TabIndex = 1;
             this.lblLevelNumber.Text = "Level";
             // 
@@ -76,7 +76,7 @@ namespace Survive2020
             // 
             // Game
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 37F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1370, 749);
@@ -93,8 +93,8 @@ namespace Survive2020
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
-            this.Activated += new System.EventHandler(this.Game_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
+            this.Load += new System.EventHandler(this.Game_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Game_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Game_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pause)).EndInit();

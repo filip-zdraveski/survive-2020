@@ -15,6 +15,8 @@ namespace Survive2020
     {
         public static Level Level { get; set; }
         public static string FileName { get; set; }
+        public static int FormWidth { get; set; }
+        public int FormHeight { get; set; }
         public static bool IsPaused { get; set; }
         private int AutoMoveInterval { get; set; }
         private int labelLvlPoints = 0;
@@ -29,6 +31,9 @@ namespace Survive2020
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+
+            FormWidth = SystemInformation.VirtualScreen.Width;
+            FormHeight = SystemInformation.VirtualScreen.Height;
 
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
@@ -186,13 +191,6 @@ namespace Survive2020
             }
         }
 
-        private void Game_Activated(object sender, EventArgs e)
-        {
-            lblLevelNumber.Text = "Level " + CurrentLevel;
-            Level.Darkness = new Darkness(0, 0, 10, ActiveForm.Height);
-            Level.Goal = new Goal(ActiveForm.Width - 100, ActiveForm.Height - 110);
-        }
-
         private void Game_FormClosed(object sender, FormClosedEventArgs e)
         {
             StopTimers();
@@ -232,6 +230,13 @@ namespace Survive2020
             DarknessTimer.Stop();
             SickPersonSpawnTimer.Stop();
             SickPersonMoveTimer.Stop();
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+            lblLevelNumber.Text = "Level " + CurrentLevel;
+            Level.Darkness = new Darkness(0, 0, 10, FormHeight);
+            Level.Goal = new Goal(FormWidth - 85, FormHeight - 95);
         }
     }
 }
