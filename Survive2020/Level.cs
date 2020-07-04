@@ -11,9 +11,10 @@ using System.Windows.Forms;
 
 namespace Survive2020
 {
+    [Serializable]
     public class Level
     {
-        private int LevelNumber { get; set; }
+        public int LevelNumber { get; set; }
         public bool IsEnabled;
         public Hero Hero;
         public List<Mask> Masks;

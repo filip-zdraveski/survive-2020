@@ -9,13 +9,15 @@ using System.Windows.Forms;
 
 namespace Survive2020
 {
+    [Serializable]
     public class Hero
     {
         public Image Image { get; set; }
         public bool Masked { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public Timer PowerUp { get; set; }
+        [NonSerialized]
+        private Timer PowerUp;
         public readonly int Width = 60;
         public readonly int Height = 60;
         public int Lives { get; set; }

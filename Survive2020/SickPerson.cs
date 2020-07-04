@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Survive2020
 {
+    [Serializable]
     public class SickPerson
     {
         private Image Image { get; set; }

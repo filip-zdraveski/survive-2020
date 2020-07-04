@@ -46,31 +46,31 @@ namespace Survive2020
 
         private void btnL1_Click(object sender, EventArgs e)
         {
-            Game game = new Game(1);
+            Game game = new Game(1, false);
             game.Show();
         }
 
         private void btnL2_Click(object sender, EventArgs e)
         {
-            Game game = new Game(2);
+            Game game = new Game(2, false);
             game.Show();
         }
 
         private void btnL3_Click(object sender, EventArgs e)
         {
-            Game game = new Game(3);
+            Game game = new Game(3, false);
             game.Show();
         }
 
         private void btnL4_Click(object sender, EventArgs e)
         {
-            Game game = new Game(4);
+            Game game = new Game(4, false);
             game.Show();
         }
 
         private void btnL5_Click(object sender, EventArgs e)
         {
-            Game game = new Game(5);
+            Game game = new Game(5, false);
             game.Show();
         }
 

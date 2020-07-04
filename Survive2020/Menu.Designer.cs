@@ -33,7 +33,7 @@
             this.btnHowToPlay = new System.Windows.Forms.Button();
             this.btnLevel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
@@ -97,21 +97,21 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Survive 2020";
             // 
-            // btnSave
+            // btnOpen
             // 
-            this.btnSave.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSave.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnSave.Location = new System.Drawing.Point(170, 364);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(368, 37);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnOpen.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOpen.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpen.Location = new System.Drawing.Point(170, 364);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(368, 37);
+            this.btnOpen.TabIndex = 4;
+            this.btnOpen.Text = "OPEN SAVED GAME";
+            this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // Menu
             // 
@@ -119,7 +119,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
             this.ClientSize = new System.Drawing.Size(721, 470);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLevel);
             this.Controls.Add(this.btnHowToPlay);
@@ -145,6 +145,6 @@
         private System.Windows.Forms.Button btnHowToPlay;
         private System.Windows.Forms.Button btnLevel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnOpen;
     }
 }

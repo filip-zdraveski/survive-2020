@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Survive2020
 {
+    [Serializable]
     public class Darkness
     {
         public int Start { get; set; }

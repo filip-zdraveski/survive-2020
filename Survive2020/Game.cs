@@ -13,7 +13,8 @@ namespace Survive2020
 {
     public partial class Game : Form
     {
-        private Level Level;
+        public static Level Level { get; set; }
+        public static string FileName { get; set; }
         public static bool IsPaused { get; set; }
         private int AutoMoveInterval { get; set; }
         private int labelLvlPoints = 0;
@@ -24,13 +25,16 @@ namespace Survive2020
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
-        public Game(int currentLevel)
+        public Game(int currentLevel, bool savedPreviously)
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
             CurrentLevel = currentLevel;
-            Level = new Level(CurrentLevel);
+            if (!savedPreviously)
+            {
+                Level = new Level(CurrentLevel);
+            }
             IsPaused = false;
 
             MaskTimer = new Timer();
