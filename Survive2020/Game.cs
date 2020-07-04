@@ -78,9 +78,9 @@ namespace Survive2020
 
         private void InitializeTimers()
         {
-            MaskTimer.Interval = 5000 + 5000 * CurrentLevel;
+            MaskTimer.Interval = 5000 * CurrentLevel;
             DisinfectantTimer.Interval = 5500 - 500 * CurrentLevel;
-            DarknessTimer.Interval = 3250 - 250 * CurrentLevel;
+            DarknessTimer.Interval = 3100 - 100 * CurrentLevel;
             DarknessIncrement = 15 + 5 * CurrentLevel;
             SickPersonSpawnTimer.Interval = 3250 - 250 * CurrentLevel;
             SickPersonMoveTimer.Interval = 550 - 50 * CurrentLevel;
