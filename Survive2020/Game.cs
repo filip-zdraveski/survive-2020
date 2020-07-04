@@ -25,16 +25,13 @@ namespace Survive2020
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
-        public Game(int currentLevel, bool savedPreviously)
+        public Game(int currentLevel)
         {
             InitializeComponent();
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
             CurrentLevel = currentLevel;
-            if (!savedPreviously)
-            {
-                Level = new Level(CurrentLevel);
-            }
+            Level = new Level(CurrentLevel);
             IsPaused = false;
 
             MaskTimer = new Timer();

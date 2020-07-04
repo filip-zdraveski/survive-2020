@@ -44,12 +44,12 @@ namespace Survive2020
             Game.ActiveForm.Close();
             if (HasNextLevel)
             {
-                Game nextLevel = new Game(++Game.CurrentLevel, false);
+                Game nextLevel = new Game(++Game.CurrentLevel);
                 nextLevel.Show();
             }
             else
             {
-                Game replay = new Game(Game.CurrentLevel, false);
+                Game replay = new Game(Game.CurrentLevel);
                 replay.Show();
             }
         }

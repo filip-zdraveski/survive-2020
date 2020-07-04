@@ -23,8 +23,8 @@ namespace Survive2020
         public Darkness Darkness;
         public Goal Goal;
         private Random random;
-        public static int Points;
-        public static int RequiredPoints { get; set; }
+        public int Points { get; set; }
+        public int RequiredPoints { get; set; }
         public Image Heart1 { get; set; }
         public Image Heart2 { get; set; }
         public Image Heart3 { get; set; }

@@ -23,7 +23,7 @@ namespace Survive2020
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Game game = new Game(Game.CurrentLevel, false);
+            Game game = new Game(Game.CurrentLevel);
             game.Show();
         }
 
@@ -53,7 +53,7 @@ namespace Survive2020
                     {
                         IFormatter formater = new BinaryFormatter();
                         Game.Level = (Level)formater.Deserialize(fileStream);
-                        Game game = new Game(Game.Level.LevelNumber, true);
+                        Game game = new Game(Game.Level.LevelNumber);
                         game.Show();
                     }
                 }
