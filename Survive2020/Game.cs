@@ -246,7 +246,7 @@ namespace Survive2020
         {
             ActualFormWidth = SystemInformation.VirtualScreen.Width;
             ActualFormHeight = SystemInformation.VirtualScreen.Height;
-            Level.Goal = new Goal(ActualFormWidth - 100, ActualFormHeight - 80);
+            Level.Goal = new Goal(ActualFormWidth - Goal.Width, ActualFormHeight - Goal.Height);
         }
 
         private void Game_Deactivate(object sender, EventArgs e)
