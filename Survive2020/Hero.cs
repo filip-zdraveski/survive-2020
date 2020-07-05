@@ -56,7 +56,7 @@ namespace Survive2020
 
         public void MoveRight()
         {
-            if (X <= Game.ActiveForm.Width - Width - Width / 2)
+            if (X <= Game.ActualFormWidth - Width)
             {
                 X += 10;
             }
@@ -72,7 +72,7 @@ namespace Survive2020
 
         public void MoveDown()
         {
-            if (Y <= Game.ActiveForm.Height - Height - Height / 2 - 10)
+            if (Y <= Game.ActualFormHeight - Height - 10)
             {
                 Y += 10;
             }

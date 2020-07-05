@@ -90,22 +90,22 @@ namespace Survive2020
 
         public void AddMask()
         {
-            int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Mask.Width - Goal.Width);
-            int y = random.Next(70, Form.ActiveForm.Height - Mask.Height - Mask.Height / 2);
+            int x = random.Next(Darkness.Width, Game.ActualFormWidth - Mask.Width - Goal.Width);
+            int y = random.Next(70, Game.ActualFormHeight - Mask.Height);
             Masks.Add(new Mask(x, y));
         }
 
         public void AddDisinfectant()
         {
-            int x = random.Next(Darkness.Width, Form.ActiveForm.Width - Disinfectant.Width - Goal.Width);
-            int y = random.Next(70, Form.ActiveForm.Height - Disinfectant.Height - Disinfectant.Height / 2);
+            int x = random.Next(Darkness.Width, Game.ActualFormWidth - Disinfectant.Width - Goal.Width);
+            int y = random.Next(70, Game.ActualFormHeight - Disinfectant.Height);
             Disinfectants.Add(new Disinfectant(x, y));
         }
 
         public void AddSickPerson()
         {
-            int y = random.Next(70, Form.ActiveForm.Height - SickPerson.Height - SickPerson.Height / 2);
-            SickPersons.Add(new SickPerson(Form.ActiveForm.Width - 20, y));
+            int y = random.Next(70, Game.ActualFormHeight - SickPerson.Height);
+            SickPersons.Add(new SickPerson(Game.ActualFormWidth - 20, y));
         }
 
         public void IncreaseDarkness(int width)
@@ -117,9 +117,9 @@ namespace Survive2020
         public void Draw(Graphics g)
         {
             Hero.Draw(g);
-            g.DrawImage(Heart1, Form.ActiveForm.Width - 210, 10, HeartWidth, HeartHeight);
-            g.DrawImage(Heart2, Form.ActiveForm.Width - 150, 10, HeartWidth, HeartHeight);
-            g.DrawImage(Heart3, Form.ActiveForm.Width - 90, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart1, Game.ActualFormWidth - 210, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart2, Game.ActualFormWidth - 150, 10, HeartWidth, HeartHeight);
+            g.DrawImage(Heart3, Game.ActualFormWidth - 90, 10, HeartWidth, HeartHeight);
             foreach (Mask mask in Masks)
             {
                 mask.Draw(g);

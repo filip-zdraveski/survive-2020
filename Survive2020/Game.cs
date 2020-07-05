@@ -15,25 +15,24 @@ namespace Survive2020
     {
         public static Level Level { get; set; }
         public static string FileName { get; set; }
-        public static int FormWidth { get; set; }
-        public int FormHeight { get; set; }
+        public static int ActualFormWidth { get; set; }
+        public static int ActualFormHeight { get; set; }
         public static bool IsPaused { get; set; }
         private int AutoMoveInterval { get; set; }
         private int labelLvlPoints = 0;
         public static int CurrentLevel = 1;
+        private Pause PauseForm { get; set; }
         public int DarknessIncrement { get; set; }
         public Timer MaskTimer { get; set; }
         public Timer DisinfectantTimer { get; set; }
         public Timer DarknessTimer { get; set; }
         public Timer SickPersonSpawnTimer { get; set; }
         public Timer SickPersonMoveTimer { get; set; }
+
         public Game(int currentLevel)
         {
             InitializeComponent();
-            this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
-
-            FormWidth = SystemInformation.VirtualScreen.Width;
-            FormHeight = SystemInformation.VirtualScreen.Height;
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
             CurrentLevel = currentLevel;
             Level = new Level(CurrentLevel);
@@ -54,26 +53,28 @@ namespace Survive2020
 
             UpdatePoints();
 
+            PauseForm = new Pause();
+
             switch (CurrentLevel)
             {
                 case 1:
-                    this.BackgroundImage = Resources.park;
+                    BackgroundImage = Resources.park;
                     break;
                 case 2:
-                    this.BackgroundImage = Resources.gtc;
+                    BackgroundImage = Resources.gtc;
                     break;
                 case 3:
-                    this.BackgroundImage = Resources.cair;
+                    BackgroundImage = Resources.cair;
                     break;
                 case 4:
-                    this.BackgroundImage = Resources.jsp;
+                    BackgroundImage = Resources.jsp;
                     break;
                 case 5:
-                    this.BackgroundImage = Resources.avenue;
+                    BackgroundImage = Resources.avenue;
                     break;
             }
 
-            this.BackgroundImageLayout = ImageLayout.Stretch;
+            BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void InitializeTimers()
@@ -203,14 +204,14 @@ namespace Survive2020
                 StopTimers();
                 IsPaused = true;
                 pause.Image = Resources.play_icon;
-                Pause pauseForm = new Pause();
-                pauseForm.Show();
+                PauseForm.Show();
             }
             else
             {
                 StartTimers();
                 IsPaused = false;
                 pause.Image = Resources.pause_icon;
+                PauseForm.Hide();
             }
         }
 
@@ -234,9 +235,26 @@ namespace Survive2020
 
         private void Game_Load(object sender, EventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+
             lblLevelNumber.Text = "Level " + CurrentLevel;
-            Level.Darkness = new Darkness(0, 0, 10, FormHeight);
-            Level.Goal = new Goal(FormWidth - 85, FormHeight - 95);
+            Level.Darkness = new Darkness(0, 0, 0, SystemInformation.VirtualScreen.Height);
+        }
+
+        private void Game_Activated(object sender, EventArgs e)
+        {
+            ActualFormWidth = SystemInformation.VirtualScreen.Width;
+            ActualFormHeight = SystemInformation.VirtualScreen.Height;
+            Level.Goal = new Goal(ActualFormWidth - 100, ActualFormHeight - 80);
+        }
+
+        private void Game_Deactivate(object sender, EventArgs e)
+        {
+            if (!Level.IsEnabled)
+            {
+                pause.Enabled = false;
+            }
         }
     }
 }

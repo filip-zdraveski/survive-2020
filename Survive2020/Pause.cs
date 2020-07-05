@@ -53,10 +53,5 @@ namespace Survive2020
             this.Close();
             ActiveForm.Close();
         }
-
-        private void Pause_Deactivate(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
     }
 }
