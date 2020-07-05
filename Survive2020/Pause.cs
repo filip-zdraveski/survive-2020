@@ -46,6 +46,7 @@ namespace Survive2020
                     formatter.Serialize(fileStream, Game.Level);
                 }
             }
+            btnSave.Enabled = false;
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
