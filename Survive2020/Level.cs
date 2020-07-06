@@ -171,6 +171,7 @@ namespace Survive2020
                         IsEnabled = false;
                         CustomMessageBox cmb = new CustomMessageBox();
                         cmb.SetMessage("You lost all your lives. Game over!");
+                        cmb.SetRetryButton(true);
                         cmb.Show();
                         break;
                     }
@@ -195,13 +196,6 @@ namespace Survive2020
                     ++Points;
                 }
             }
-            if (Hero.CheckDarkness(Darkness))
-            {
-                IsEnabled = false;
-                CustomMessageBox cmb = new CustomMessageBox();
-                cmb.SetMessage("The darkness caught you. Game over!");
-                cmb.Show();
-            }
             if (!Hero.IsMasked)
             {
                 for (int i = 0; i < SickPersons.Count; i++)
@@ -216,25 +210,36 @@ namespace Survive2020
                         IsEnabled = false;
                         CustomMessageBox cmb = new CustomMessageBox();
                         cmb.SetMessage("You lost all your lives. Game over!");
+                        cmb.SetRetryButton(true);
                         cmb.Show();
                         break;
                     }
                 }
             }
+            if (Hero.CheckDarkness(Darkness))
+            {
+                IsEnabled = false;
+                CustomMessageBox cmb = new CustomMessageBox();
+                cmb.SetMessage("The darkness caught you. Game over!");
+                cmb.SetRetryButton(true);
+                cmb.Show();
+            }
             if (Goal.IsEnabled && Hero.CheckGoal(Goal))
             {
                 IsEnabled = false;
+                ++Game.CurrentLevel;
                 if (LevelNumber < 5)
                 {
-                    ++Game.CurrentLevel;
                     CustomMessageBox cmb = new CustomMessageBox();
                     cmb.SetMessage(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
+                    cmb.SetRetryButton(false);
                     cmb.Show();
                 }
                 else
                 {
                     CustomMessageBox cmb = new CustomMessageBox();
                     cmb.SetMessage("Game finished. Congratulations!");
+                    cmb.SetRetryButton(false);
                     cmb.Show();
                 }
             }
@@ -272,6 +277,7 @@ namespace Survive2020
                 IsEnabled = false;
                 CustomMessageBox cmb = new CustomMessageBox();
                 cmb.SetMessage("The darkness caught you. Game over!");
+                cmb.SetRetryButton(true);
                 cmb.Show();
             }
         }

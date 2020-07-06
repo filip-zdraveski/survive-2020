@@ -16,7 +16,6 @@ namespace Survive2020
         public CustomMessageBox()
         {
             InitializeComponent();
-            SetButtonText();
         }
 
         public void SetMessage(string message)
@@ -24,15 +23,20 @@ namespace Survive2020
             lbMessage.Text = message;
         }
 
-        public void SetButtonText()
+        public void SetRetryButton(bool retry)
         {
-            if (Game.CurrentLevel < 5)
+            if (Game.CurrentLevel <= 5 && !retry)
             {
                 btnLeft.Text = "Next level";
             }
-            else
+            else if (Game.CurrentLevel <= 5 && retry)
             {
                 btnLeft.Text = "Retry";
+            }
+            if (Game.CurrentLevel > 5)
+            {
+                btnLeft.Text = "Next level";
+                btnLeft.Enabled = false;
             }
         }
 
@@ -40,14 +44,14 @@ namespace Survive2020
         {
             Close();
             ActiveForm.Close();
-            if (Game.CurrentLevel < 5)
+            if (Game.CurrentLevel <= 5)
             {
-                Game nextLevel = new Game(++Game.CurrentLevel);
+                Game nextLevel = new Game(Game.CurrentLevel);
                 nextLevel.Show();
             }
             else
             {
-                Game replay = new Game(Game.CurrentLevel);
+                Game replay = new Game(--Game.CurrentLevel);
                 replay.Show();
             }
         }

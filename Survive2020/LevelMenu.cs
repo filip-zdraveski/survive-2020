@@ -31,7 +31,7 @@ namespace Survive2020
             {
                 btnL4.Enabled = true;
             }
-            if (Game.CurrentLevel == 5)
+            if (Game.CurrentLevel >= 5)
             {
                 btnL5.Enabled = true;
             }
