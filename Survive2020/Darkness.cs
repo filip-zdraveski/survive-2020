@@ -12,17 +12,17 @@ namespace Survive2020
     [Serializable]
     public class Darkness
     {
-        public int Start { get; set; }
-        public int End { get; set; }
+        private int Start { get; set; }
+        private int End { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Darkness(int s, int e, int w, int h)
+        public Darkness(int start, int end, int width, int height)
         {
-            Start = s;
-            End = e;
-            Width = w;
-            Height = h;
+            Start = start;
+            End = end;
+            Width = width;
+            Height = height;
         }
 
         public void Draw(Graphics g)
@@ -52,7 +52,7 @@ namespace Survive2020
 
         public bool CheckSickPerson(SickPerson sickPerson)
         {
-            if (sickPerson.CenterX <= End + Width)
+            if (sickPerson.Center.X <= End + Width)
             {
                 return true;
             }

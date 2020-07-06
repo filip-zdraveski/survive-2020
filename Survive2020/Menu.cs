@@ -18,7 +18,6 @@ namespace Survive2020
         public Menu()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -27,23 +26,25 @@ namespace Survive2020
             game.Show();
         }
 
-        private void btnHowToPlay_Click_1(object sender, EventArgs e)
+        private void btnChooseLvl_Click(object sender, EventArgs e)
         {
-            HowToPlay instructions = new HowToPlay(this);
-            instructions.Show();
-        }
-
-        private void btnLevel_Click(object sender, EventArgs e)
-        {
-            LevelMenu levelMenu = new LevelMenu(this);
+            LevelMenu levelMenu = new LevelMenu();
             levelMenu.Show();
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void btnHowToPlay_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Survive 2020 (*.covid)|*.covid";
-            openFileDialog.Title = "Open saved game";
+            HowToPlay instructions = new HowToPlay();
+            instructions.Show();
+        }
+
+        private void btnOpenSaved_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "Survive 2020 (*.covid)|*.covid",
+                Title = "Open saved game"
+            };
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Game.FileName = openFileDialog.FileName;
@@ -57,13 +58,12 @@ namespace Survive2020
                         game.Show();
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     MessageBox.Show("Could not read file: " + Game.FileName);
                     Game.FileName = null;
                     return;
                 }
-                
             }
         }
     }

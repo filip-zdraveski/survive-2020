@@ -13,14 +13,15 @@ namespace Survive2020
 {
     public partial class Game : Form
     {
+        public static int CurrentLevel = 1;
         public static Level Level { get; set; }
-        public static string FileName { get; set; }
+        public static bool IsPaused { get; set; }
         public static int ActualFormWidth { get; set; }
         public static int ActualFormHeight { get; set; }
-        public static bool IsPaused { get; set; }
+        public static string FileName { get; set; }
+
         private int AutoMoveInterval { get; set; }
-        private int labelLvlPoints = 0;
-        public static int CurrentLevel = 1;
+        private int LabelLvlPoints { get; set; }
         private Pause PauseForm { get; set; }
         public int DarknessIncrement { get; set; }
         public Timer MaskTimer { get; set; }
@@ -38,6 +39,12 @@ namespace Survive2020
             Level = new Level(CurrentLevel);
             IsPaused = false;
 
+            AutoMoveInterval = 0;
+
+            UpdatePoints();
+
+            PauseForm = new Pause();
+
             MaskTimer = new Timer();
             MaskTimer.Tick += new EventHandler(MaskTimer_Tick);
             DisinfectantTimer = new Timer();
@@ -50,10 +57,6 @@ namespace Survive2020
             SickPersonMoveTimer.Tick += new EventHandler(SickPersonMoveTimer_Tick);
 
             InitializeTimers();
-
-            UpdatePoints();
-
-            PauseForm = new Pause();
 
             switch (CurrentLevel)
             {
@@ -73,8 +76,30 @@ namespace Survive2020
                     BackgroundImage = Resources.avenue;
                     break;
             }
-
             BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
+        private void UpdatePoints()
+        {
+            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
+        }
+
+        private void pause_Click(object sender, EventArgs e)
+        {
+            if (!IsPaused)
+            {
+                StopTimers();
+                IsPaused = true;
+                pause.Image = Resources.play_icon;
+                PauseForm.Show();
+            }
+            else
+            {
+                StartTimers();
+                IsPaused = false;
+                pause.Image = Resources.pause_icon;
+                PauseForm.Hide();
+            }
         }
 
         private void InitializeTimers()
@@ -154,67 +179,6 @@ namespace Survive2020
             }
         }
 
-        private void Game_Paint(object sender, PaintEventArgs e)
-        {
-            if (Level.IsEnabled)
-            {
-                Level.Draw(e.Graphics);
-            }
-        }
-
-        private void UpdatePoints()
-        {
-            lbPoints.Text = "Points: " + Level.Points + "/" + Level.RequiredPoints;
-        }
-
-        private void Game_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (!IsPaused)
-            {
-                Level.KeyDown(e);
-                Level.CheckHeroCollisions();
-                if (labelLvlPoints != Level.Points)
-                {
-                    UpdatePoints();
-                    labelLvlPoints = Level.Points;
-                }
-                if (Level.SickPersons.Count >= 3)
-                {
-                    ++AutoMoveInterval;
-                    if (AutoMoveInterval == 30)
-                    {
-                        Level.MoveSickPerson();
-                        Level.IncreaseDarkness(DarknessIncrement);
-                        AutoMoveInterval = 0;
-                    }
-                }
-                Invalidate();
-            }
-        }
-
-        private void Game_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            StopTimers();
-        }
-
-        private void pause_Click(object sender, EventArgs e)
-        {
-            if (!IsPaused)
-            {
-                StopTimers();
-                IsPaused = true;
-                pause.Image = Resources.play_icon;
-                PauseForm.Show();
-            }
-            else
-            {
-                StartTimers();
-                IsPaused = false;
-                pause.Image = Resources.pause_icon;
-                PauseForm.Hide();
-            }
-        }
-
         private void StartTimers()
         {
             DisinfectantTimer.Start();
@@ -233,15 +197,6 @@ namespace Survive2020
             SickPersonMoveTimer.Stop();
         }
 
-        private void Game_Load(object sender, EventArgs e)
-        {
-            FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
-
-            lblLevelNumber.Text = "Level " + CurrentLevel;
-            Level.Darkness = new Darkness(0, 0, 0, SystemInformation.VirtualScreen.Height);
-        }
-
         private void Game_Activated(object sender, EventArgs e)
         {
             ActualFormWidth = SystemInformation.VirtualScreen.Width;
@@ -254,6 +209,53 @@ namespace Survive2020
             if (!Level.IsEnabled)
             {
                 pause.Enabled = false;
+            }
+        }
+
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            StopTimers();
+        }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!IsPaused)
+            {
+                Level.KeyDown(e);
+                Level.CheckHeroCollisions();
+                if (LabelLvlPoints != Level.Points)
+                {
+                    UpdatePoints();
+                    LabelLvlPoints = Level.Points;
+                }
+                if (Level.SickPersons.Count >= 3)
+                {
+                    ++AutoMoveInterval;
+                    if (AutoMoveInterval == 30)
+                    {
+                        Level.MoveSickPerson();
+                        Level.IncreaseDarkness(DarknessIncrement);
+                        AutoMoveInterval = 0;
+                    }
+                }
+                Invalidate();
+            }
+        }
+
+        private void Game_Load(object sender, EventArgs e)
+        {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
+
+            lblLevelNumber.Text = "Level " + CurrentLevel;
+            Level.Darkness = new Darkness(0, 0, 0, SystemInformation.VirtualScreen.Height);
+        }
+
+        private void Game_Paint(object sender, PaintEventArgs e)
+        {
+            if (Level.IsEnabled)
+            {
+                Level.Draw(e.Graphics);
             }
         }
     }

@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.btnStart = new System.Windows.Forms.Button();
             this.btnHowToPlay = new System.Windows.Forms.Button();
-            this.btnLevel = new System.Windows.Forms.Button();
+            this.btnChooseLvl = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnOpenSaved = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
@@ -43,10 +43,10 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnStart.Location = new System.Drawing.Point(170, 172);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStart.Location = new System.Drawing.Point(227, 212);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(368, 37);
+            this.btnStart.Size = new System.Drawing.Size(491, 46);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -59,30 +59,30 @@
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHowToPlay.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHowToPlay.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnHowToPlay.Location = new System.Drawing.Point(170, 300);
-            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHowToPlay.Location = new System.Drawing.Point(227, 369);
+            this.btnHowToPlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHowToPlay.Name = "btnHowToPlay";
-            this.btnHowToPlay.Size = new System.Drawing.Size(368, 37);
+            this.btnHowToPlay.Size = new System.Drawing.Size(491, 46);
             this.btnHowToPlay.TabIndex = 1;
             this.btnHowToPlay.Text = "How to play";
             this.btnHowToPlay.UseVisualStyleBackColor = false;
-            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click_1);
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
             // 
-            // btnLevel
+            // btnChooseLvl
             // 
-            this.btnLevel.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnLevel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLevel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLevel.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLevel.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnLevel.Location = new System.Drawing.Point(170, 236);
-            this.btnLevel.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLevel.Name = "btnLevel";
-            this.btnLevel.Size = new System.Drawing.Size(368, 37);
-            this.btnLevel.TabIndex = 2;
-            this.btnLevel.Text = "Choose Level";
-            this.btnLevel.UseVisualStyleBackColor = false;
-            this.btnLevel.Click += new System.EventHandler(this.btnLevel_Click);
+            this.btnChooseLvl.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnChooseLvl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChooseLvl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnChooseLvl.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChooseLvl.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnChooseLvl.Location = new System.Drawing.Point(227, 290);
+            this.btnChooseLvl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnChooseLvl.Name = "btnChooseLvl";
+            this.btnChooseLvl.Size = new System.Drawing.Size(491, 46);
+            this.btnChooseLvl.TabIndex = 2;
+            this.btnChooseLvl.Text = "Choose Level";
+            this.btnChooseLvl.UseVisualStyleBackColor = false;
+            this.btnChooseLvl.Click += new System.EventHandler(this.btnChooseLvl_Click);
             // 
             // label1
             // 
@@ -90,47 +90,46 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label1.Location = new System.Drawing.Point(148, 72);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(197, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(447, 79);
+            this.label1.Size = new System.Drawing.Size(556, 98);
             this.label1.TabIndex = 3;
             this.label1.Text = "Survive 2020";
             // 
-            // btnOpen
+            // btnOpenSaved
             // 
-            this.btnOpen.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOpen.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpen.ForeColor = System.Drawing.Color.GhostWhite;
-            this.btnOpen.Location = new System.Drawing.Point(170, 364);
-            this.btnOpen.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(368, 37);
-            this.btnOpen.TabIndex = 4;
-            this.btnOpen.Text = "OPEN SAVED GAME";
-            this.btnOpen.UseVisualStyleBackColor = false;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnOpenSaved.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnOpenSaved.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpenSaved.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOpenSaved.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenSaved.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnOpenSaved.Location = new System.Drawing.Point(227, 448);
+            this.btnOpenSaved.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpenSaved.Name = "btnOpenSaved";
+            this.btnOpenSaved.Size = new System.Drawing.Size(491, 46);
+            this.btnOpenSaved.TabIndex = 4;
+            this.btnOpenSaved.Text = "OPEN SAVED GAME";
+            this.btnOpenSaved.UseVisualStyleBackColor = false;
+            this.btnOpenSaved.Click += new System.EventHandler(this.btnOpenSaved_Click);
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
-            this.ClientSize = new System.Drawing.Size(721, 470);
-            this.Controls.Add(this.btnOpen);
+            this.ClientSize = new System.Drawing.Size(959, 569);
+            this.Controls.Add(this.btnOpenSaved);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLevel);
+            this.Controls.Add(this.btnChooseLvl);
             this.Controls.Add(this.btnHowToPlay);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(737, 509);
+            this.MaximumSize = new System.Drawing.Size(977, 616);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(737, 509);
+            this.MinimumSize = new System.Drawing.Size(977, 616);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
@@ -143,8 +142,8 @@
 
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnHowToPlay;
-        private System.Windows.Forms.Button btnLevel;
+        private System.Windows.Forms.Button btnChooseLvl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnOpenSaved;
     }
 }

@@ -11,12 +11,13 @@ namespace Survive2020
     [Serializable]
     public class Mask
     {
-        public Image Image { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public Point Center { get; set; }
         public static readonly int Width = 70;
         public static readonly int Height = 47;
+
+        private int X { get; set; }
+        private int Y { get; set; }
+        private Image Image { get; set; }
+        public Point Center { get; set; }
 
         public Mask(int x, int y)
         {

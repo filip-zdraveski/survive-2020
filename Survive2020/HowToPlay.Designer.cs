@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HowToPlay));
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tbInstructions = new System.Windows.Forms.RichTextBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.lbInstructions = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -42,71 +42,69 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // richTextBox1
+            // tbInstructions
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.richTextBox1.Font = new System.Drawing.Font("Showcard Gothic", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.richTextBox1.Location = new System.Drawing.Point(62, 100);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(601, 336);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.TabStop = false;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            this.richTextBox1.Enter += new System.EventHandler(this.richTextBox1_Enter);
+            this.tbInstructions.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.tbInstructions.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbInstructions.Font = new System.Drawing.Font("Showcard Gothic", 10.15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbInstructions.ForeColor = System.Drawing.Color.GhostWhite;
+            this.tbInstructions.Location = new System.Drawing.Point(83, 123);
+            this.tbInstructions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbInstructions.Name = "tbInstructions";
+            this.tbInstructions.ReadOnly = true;
+            this.tbInstructions.Size = new System.Drawing.Size(800, 413);
+            this.tbInstructions.TabIndex = 3;
+            this.tbInstructions.TabStop = false;
+            this.tbInstructions.Text = resources.GetString("tbInstructions.Text");
+            this.tbInstructions.Enter += new System.EventHandler(this.tbInstructions_Enter);
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.button1.Location = new System.Drawing.Point(62, 16);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 61);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "⯇";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBack.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.GhostWhite;
+            this.btnBack.Location = new System.Drawing.Point(83, 20);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 75);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "⯇";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // label1
+            // lbInstructions
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.GhostWhite;
-            this.label1.Location = new System.Drawing.Point(149, 4);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(483, 79);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Instructions";
+            this.lbInstructions.AutoSize = true;
+            this.lbInstructions.BackColor = System.Drawing.Color.Transparent;
+            this.lbInstructions.Font = new System.Drawing.Font("Showcard Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInstructions.ForeColor = System.Drawing.Color.GhostWhite;
+            this.lbInstructions.Location = new System.Drawing.Point(199, 5);
+            this.lbInstructions.Name = "lbInstructions";
+            this.lbInstructions.Size = new System.Drawing.Size(602, 98);
+            this.lbInstructions.TabIndex = 1;
+            this.lbInstructions.Text = "Instructions";
             // 
             // HowToPlay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Survive2020.Properties.Resources.corona;
-            this.ClientSize = new System.Drawing.Size(721, 470);
+            this.ClientSize = new System.Drawing.Size(959, 569);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.lbInstructions);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.tbInstructions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(737, 509);
+            this.MaximumSize = new System.Drawing.Size(977, 616);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(737, 509);
+            this.MinimumSize = new System.Drawing.Size(977, 616);
             this.Name = "HowToPlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survive 2020";
-            this.Load += new System.EventHandler(this.HowToPlay_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,8 +113,8 @@
         #endregion
 
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox tbInstructions;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lbInstructions;
     }
 }

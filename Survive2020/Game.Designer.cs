@@ -84,6 +84,7 @@ namespace Survive2020
             this.Controls.Add(this.pause);
             this.Controls.Add(this.lblLevelNumber);
             this.Controls.Add(this.lbPoints);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

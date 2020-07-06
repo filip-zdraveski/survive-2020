@@ -20,19 +20,16 @@ namespace Survive2020
             InitializeComponent();
         }
 
-        private void Pause_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (Game.FileName == null)
             {
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = "Survive 2020 (*.covid)|*.covid";
-                saveFileDialog.Title = "Save your game";
-                saveFileDialog.FileName = Game.FileName;
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Survive 2020 (*.covid)|*.covid",
+                    Title = "Save your game",
+                    FileName = Game.FileName
+                };
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     Game.FileName = saveFileDialog.FileName;
@@ -51,7 +48,7 @@ namespace Survive2020
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             ActiveForm.Close();
         }
     }

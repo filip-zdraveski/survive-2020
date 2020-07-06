@@ -14,37 +14,38 @@ namespace Survive2020
     [Serializable]
     public class Level
     {
-        public int LevelNumber { get; set; }
-        public bool IsEnabled;
-        public Hero Hero;
-        public List<Mask> Masks;
-        public List<Disinfectant> Disinfectants;
-        public List<SickPerson> SickPersons;
-        public Darkness Darkness;
-        public Goal Goal;
-        private Random random;
-        public int Points { get; set; }
-        public int RequiredPoints { get; set; }
-        public Image Heart1 { get; set; }
-        public Image Heart2 { get; set; }
-        public Image Heart3 { get; set; }
         public readonly int HeartWidth = 50;
         public readonly int HeartHeight = 50;
 
+        private Hero Hero { get; set; }
+        private Image Heart1 { get; set; }
+        private Image Heart2 { get; set; }
+        private Image Heart3 { get; set; }
+        private Random Random { get; set; }
+        private List<Mask> Masks { get; set; }
+        private List<Disinfectant> Disinfectants { get; set; }
+        public List<SickPerson> SickPersons { get; set; }
+        public int LevelNumber { get; set; }
+        public bool IsEnabled { get; set; }
+        public Darkness Darkness { get; set; }
+        public Goal Goal { get; set; }
+        public int Points { get; set; }
+        public int RequiredPoints { get; set; }
+
         public Level(int levelNumber)
         {
-            LevelNumber = levelNumber;
-            RequiredPoints = 4 + 2 * LevelNumber;
-            IsEnabled = true;
-            Masks = new List<Mask>();
-            Disinfectants = new List<Disinfectant>();
-            SickPersons = new List<SickPerson>();
             Hero = new Hero(280, 150);
             Heart1 = Resources.heart;
             Heart2 = Resources.heart;
             Heart3 = Resources.heart;
-            random = new Random();
+            Random = new Random();
+            Masks = new List<Mask>();
+            Disinfectants = new List<Disinfectant>();
+            SickPersons = new List<SickPerson>();
+            LevelNumber = levelNumber;
+            IsEnabled = true;
             Points = 0;
+            RequiredPoints = 4 + 2 * LevelNumber;
 
             switch (LevelNumber)
             {
@@ -68,50 +69,21 @@ namespace Survive2020
                     break;
             }
         }
-        public void KeyDown(KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Left)
-            {
-                Hero.MoveLeft();
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                Hero.MoveRight();
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                Hero.MoveUp();
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                Hero.MoveDown();
-            }
-        }
 
-        public void AddMask()
+        private void ChangeHearts()
         {
-            int x = random.Next(Darkness.Width, Game.ActualFormWidth - Mask.Width - Goal.Width);
-            int y = random.Next(70, Game.ActualFormHeight - Mask.Height);
-            Masks.Add(new Mask(x, y));
-        }
-
-        public void AddDisinfectant()
-        {
-            int x = random.Next(Darkness.Width, Game.ActualFormWidth - Disinfectant.Width - Goal.Width);
-            int y = random.Next(70, Game.ActualFormHeight - Disinfectant.Height);
-            Disinfectants.Add(new Disinfectant(x, y));
-        }
-
-        public void AddSickPerson()
-        {
-            int y = random.Next(70, Game.ActualFormHeight - SickPerson.Height);
-            SickPersons.Add(new SickPerson(Game.ActualFormWidth - 20, y));
-        }
-
-        public void IncreaseDarkness(int width)
-        {
-            Darkness.Increase(width);
-            CheckDarknessCollisions();
+            if (Hero.Lives == 2)
+            {
+                Heart3 = Resources.empty_heart;
+            }
+            else if (Hero.Lives == 1)
+            {
+                Heart2 = Resources.empty_heart;
+            }
+            else if (Hero.Lives == 0)
+            {
+                Heart1 = Resources.empty_heart;
+            }
         }
 
         public void Draw(Graphics g)
@@ -136,12 +108,58 @@ namespace Survive2020
             Goal.Draw(g);
         }
 
+        public void KeyDown(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                Hero.MoveLeft();
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                Hero.MoveRight();
+            }
+            else if (e.KeyCode == Keys.Up)
+            {
+                Hero.MoveUp();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                Hero.MoveDown();
+            }
+        }
+
+        public void AddMask()
+        {
+            int x = Random.Next(Darkness.Width, Game.ActualFormWidth - Mask.Width - Goal.Width);
+            int y = Random.Next(70, Game.ActualFormHeight - Mask.Height);
+            Masks.Add(new Mask(x, y));
+        }
+
+        public void AddDisinfectant()
+        {
+            int x = Random.Next(Darkness.Width, Game.ActualFormWidth - Disinfectant.Width - Goal.Width);
+            int y = Random.Next(70, Game.ActualFormHeight - Disinfectant.Height);
+            Disinfectants.Add(new Disinfectant(x, y));
+        }
+
+        public void AddSickPerson()
+        {
+            int y = Random.Next(70, Game.ActualFormHeight - SickPerson.Height);
+            SickPersons.Add(new SickPerson(Game.ActualFormWidth - 20, y));
+        }
+
+        public void IncreaseDarkness(int width)
+        {
+            Darkness.Increase(width);
+            CheckDarknessCollisions();
+        }
+
         public void MoveSickPerson()
         {
             for (int i = 0; i < SickPersons.Count; i++)
             {
                 SickPersons[i].Move(10);
-                if (!Hero.Masked)
+                if (!Hero.IsMasked)
                 {
                     if (Hero.CheckSickPerson(SickPersons[i]))
                     {
@@ -151,28 +169,12 @@ namespace Survive2020
                     if (Hero.Lives == 0)
                     {
                         IsEnabled = false;
-                        CustomMessageBox cmb = new CustomMessageBox(false);
+                        CustomMessageBox cmb = new CustomMessageBox();
                         cmb.SetMessage("You lost all your lives. Game over!");
                         cmb.Show();
                         break;
                     }
                 }
-            }
-        }
-
-        public void ChangeHearts()
-        {
-            if (Hero.Lives == 2)
-            {
-                Heart3 = Resources.empty_heart;
-            }
-            else if (Hero.Lives == 1)
-            {
-                Heart2 = Resources.empty_heart;
-            }
-            else if (Hero.Lives == 0)
-            {
-                Heart1 = Resources.empty_heart;
             }
         }
 
@@ -190,17 +192,17 @@ namespace Survive2020
                 if (Hero.CheckDisinfectant(Disinfectants[i]))
                 {
                     Disinfectants.Remove(Disinfectants[i]);
-                    Points += 1;
+                    ++Points;
                 }
             }
             if (Hero.CheckDarkness(Darkness))
             {
                 IsEnabled = false;
-                CustomMessageBox cmb = new CustomMessageBox(false);
+                CustomMessageBox cmb = new CustomMessageBox();
                 cmb.SetMessage("The darkness caught you. Game over!");
                 cmb.Show();
             }
-            if (!Hero.Masked)
+            if (!Hero.IsMasked)
             {
                 for (int i = 0; i < SickPersons.Count; i++)
                 {
@@ -212,7 +214,7 @@ namespace Survive2020
                     if (Hero.Lives == 0)
                     {
                         IsEnabled = false;
-                        CustomMessageBox cmb = new CustomMessageBox(false);
+                        CustomMessageBox cmb = new CustomMessageBox();
                         cmb.SetMessage("You lost all your lives. Game over!");
                         cmb.Show();
                         break;
@@ -221,16 +223,17 @@ namespace Survive2020
             }
             if (Goal.IsEnabled && Hero.CheckGoal(Goal))
             {
-                this.IsEnabled = false;
+                IsEnabled = false;
                 if (LevelNumber < 5)
                 {
-                    CustomMessageBox cmb = new CustomMessageBox(true);
+                    ++Game.CurrentLevel;
+                    CustomMessageBox cmb = new CustomMessageBox();
                     cmb.SetMessage(string.Format("Level {0} finished. Good job!", LevelNumber.ToString()));
                     cmb.Show();
                 }
                 else
                 {
-                    CustomMessageBox cmb = new CustomMessageBox(false);
+                    CustomMessageBox cmb = new CustomMessageBox();
                     cmb.SetMessage("Game finished. Congratulations!");
                     cmb.Show();
                 }
@@ -241,7 +244,7 @@ namespace Survive2020
             }
         }
 
-        public void CheckDarknessCollisions()
+        private void CheckDarknessCollisions()
         {
             for (int i = 0; i < Masks.Count; i++)
             {
@@ -267,7 +270,7 @@ namespace Survive2020
             if (Hero.CheckDarkness(Darkness))
             {
                 IsEnabled = false;
-                CustomMessageBox cmb = new CustomMessageBox(false);
+                CustomMessageBox cmb = new CustomMessageBox();
                 cmb.SetMessage("The darkness caught you. Game over!");
                 cmb.Show();
             }

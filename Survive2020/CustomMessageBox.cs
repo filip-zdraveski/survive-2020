@@ -13,11 +13,9 @@ namespace Survive2020
 {
     public partial class CustomMessageBox : Form
     {
-        public bool HasNextLevel { get; set; }
-        public CustomMessageBox(bool hasNextLevel)
+        public CustomMessageBox()
         {
             InitializeComponent();
-            HasNextLevel = hasNextLevel;
             SetButtonText();
         }
 
@@ -28,7 +26,7 @@ namespace Survive2020
 
         public void SetButtonText()
         {
-            if (HasNextLevel)
+            if (Game.CurrentLevel < 5)
             {
                 btnLeft.Text = "Next level";
             }
@@ -42,7 +40,7 @@ namespace Survive2020
         {
             Close();
             ActiveForm.Close();
-            if (HasNextLevel)
+            if (Game.CurrentLevel < 5)
             {
                 Game nextLevel = new Game(++Game.CurrentLevel);
                 nextLevel.Show();

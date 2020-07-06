@@ -12,32 +12,19 @@ namespace Survive2020
 {
     public partial class HowToPlay : Form
     {
-        Menu menu;
-        public HowToPlay(Menu menu)
+        public HowToPlay()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
-            this.menu = menu;
         }
 
-        private void HowToPlay_Load(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void tbInstructions_Enter(object sender, EventArgs e)
         {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void richTextBox1_Enter(object sender, EventArgs e)
-        {
-            label1.Focus();
+            lbInstructions.Focus();
         }
     }
 }

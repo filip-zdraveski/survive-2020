@@ -12,11 +12,9 @@ namespace Survive2020
 {
     public partial class LevelMenu : Form
     {
-        Menu menu;
-        public LevelMenu(Menu menu)
+        public LevelMenu()
         {
             InitializeComponent();
-            this.menu = menu;
         }
 
         private void EnableButtons()
@@ -41,7 +39,7 @@ namespace Survive2020
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnL1_Click(object sender, EventArgs e)

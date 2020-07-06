@@ -11,13 +11,13 @@ namespace Survive2020
     [Serializable]
     public class Goal
     {
-        public Image Image { get; set; }
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int CenterX { get; set; }
-        public int CenterY { get; set; }
         public static readonly int Width = 80;
         public static readonly int Height = 70;
+
+        private int X { get; set; }
+        private int Y { get; set; }
+        private Image Image { get; set; }
+        public Point Center { get; set; }
         public bool IsEnabled { get; set; }
 
         public Goal(int x, int y)
@@ -25,8 +25,7 @@ namespace Survive2020
             X = x;
             Y = y;
             Image = Resources.goal_disabled;
-            CenterX = X + Width / 2;
-            CenterY = Y + Height / 2;
+            Center = new Point(X + Width / 2, Y + Height / 2);
             IsEnabled = false;
         }
 
